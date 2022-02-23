@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* https://neumorphism.io/#6dac6c */
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    background: rgb(213, 247, 228);
+}
+.dark  {
+    background: black;
+    transition: all 1s ease 0s;
+}
+.morph{
+    background: lightgrey;
+    transition: all 1s ease 0s;
+}
+.dark h1{
+    color:green;
+}
+.test{
+    background: white;
+}
+
+#hamburger-menu svg{
+    width: 60px;
+    fill: green;
+}
+
+.nav {
+
+}
+
+.nav__link {
+    display: block;
+    padding: 12px 18px;
+    text-decoration: none;
+    color: rgb(81, 145, 8);
+    font-weight: 500;
+}
+
+.nav__link:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#app {
+    margin: 2em;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+a {
+    color: #009579;
+}

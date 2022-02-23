@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <title>Single Page</title>
+</head>
+<body>
+    <header>
+        <div class="header__wrapper">
+            <div id="hamburger-menu">
+                <svg id="menu-fill" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 8 8">
+                    <path  d="M0 0v1h8v-1h-8zm0 2.97v1h8v-1h-8zm0 3v1h8v-1h-8z" transform="translate(0 1)" />
+                  </svg>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav__link" data-link>Dashboard</a>
+                <a href="/posts" class="nav__link" data-link>Posts</a>
+                <a href="/settings" class="nav__link" data-link>Settings</a>
+            </nav>
+
+            <language-switch></language-switch>
+
+
+        </div>
+        
+    </header>
+
+    
+    <div id="app"></div>
+    <test-component link="/" buttontext="Home"></test-component>
+    
+
+
+    <script type="module" src="/static/js/index.js"></script>
+    <!-- <script src="static/js/components/testComponent.js"></script> -->
+</body>
+</html>
