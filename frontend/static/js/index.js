@@ -1,8 +1,15 @@
 import Dashboard from "./views/Dashboard.js";
-import Posts from "./views/Posts.js";
-import PostView from "./views/PostView.js";
-import Settings from "./views/Settings.js";
+import Resume from "./views/Resume.js";
+import DashboardEnglish from "./views/DashboardEnglish.js";
+import ResumeEnglish from "./views/ResumeEnglish.js";
+import DashboardEspanol from "./views/DashboardEspanol.js";
+import ResumeEspanol from "./views/ResumeEspanol.js";
+
 import  "./components/switch.js"
+import  "./components/navEnglish.js"
+import  "./components/navEspanol.js"
+import  "./components/navCzech.js"
+
 
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -24,9 +31,11 @@ const navigateTo = url => {
 const router = async () => {
     const routes = [
         { path: "/", view: Dashboard },
-        { path: "/posts", view: Posts },
-        { path: "/posts/:id", view: PostView },
-        { path: "/settings", view: Settings }
+        { path: "/resume", view: Resume },
+        { path: "/en", view: DashboardEnglish },
+        { path: "/resume/en", view: ResumeEnglish },
+        { path: "/es", view: DashboardEspanol },
+        { path: "/resume/es", view: ResumeEspanol }
     ];
 
     // Test each route for potential match
@@ -63,3 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     router();
 });
+
+const body = document.querySelector('body')
+addEventListener('DOMContentLoaded', () => {
+    
+    const getMode = localStorage.getItem('mode')
+    console.log('local storage',getMode)
+    
+    if(getMode){
+        document.querySelector('mode-switch').setAttribute('colormode', getMode)
+        body.classList.add(`${getMode}`)
+    }else{
+        document.querySelector('mode-switch').setAttribute('colormode', 'dark')
+        body.classList.add(`dark`)
+    }
+
+})
+
+
+// addEventListener('DOMContentLoaded', () => {
+//     const paths = document.querySelectorAll('#logo path')
+
+//     paths.forEach(path => {
+//         console.log(path.getTotalLength()) 
+//     })
+// })

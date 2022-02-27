@@ -7,9 +7,10 @@ template.innerHTML=`
             margin: 0;
             font-family:Helvetica;
             font-size: 15px;
+            transition: left 1s ease 0s;
         }
         #switch{
-            padding: 15px;
+            
             display:inline-block;
             transition: left 1s ease 0s;
         }
@@ -95,7 +96,7 @@ template.innerHTML=`
 
     </div>
 `
-class LanguageSwitch extends HTMLElement {
+class ModeSwitch extends HTMLElement {
     constructor(){
         super()
         this.attachShadow({ mode: 'open' });
@@ -210,4 +211,4 @@ class LanguageSwitch extends HTMLElement {
       }
 }
 
-window.customElements.define('language-switch',LanguageSwitch)
+window.customElements.define('mode-switch',ModeSwitch)
