@@ -10,7 +10,7 @@ template.innerHTML=`
             transition: left 1s ease 0s;
         }
         #switch{
-            
+            transform: scale(1.3);
             display:inline-block;
             transition: left 1s ease 0s;
         }

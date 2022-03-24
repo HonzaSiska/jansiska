@@ -8,13 +8,14 @@ template.innerHTML=`
             text-decoration: none;
             color: rgb(81, 145, 8);
             font-weight: 500;
-        },
+        }
     </style>
     <nav class="nav">
         <a href="/" class="nav__link" data-link>Hlavní stránka</a>
         <a href="/resume" class="nav__link" data-link>životopis</a>
         
     </nav>
+    
 `
 
 class CzechNav extends HTMLElement {
