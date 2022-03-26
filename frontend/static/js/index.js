@@ -73,10 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
 });
 
-// const language = localStorage.getItem('lang')
-// if(!language){
-//     localStorage.setItem('lang','cz')
-// }
+
 
 const body = document.querySelector('body')
 addEventListener('DOMContentLoaded', () => {
@@ -92,9 +89,12 @@ addEventListener('DOMContentLoaded', () => {
         body.classList.add(`dark`)
     }
 
+    /// LANGUAGES SELECTION
+
     const language = localStorage.getItem('lang')
     if(!language){
         localStorage.setItem('lang','cz')
+
     }
     const languageBar = document.querySelector('#language-selector')
     const anchors = document.querySelectorAll('.language-selector-anchor')
@@ -107,22 +107,30 @@ addEventListener('DOMContentLoaded', () => {
         let langAnchor = anchor.getAttribute('data-url')
      
         anchor.removeAttribute('data-active')  
-
-        if(langAnchor === '/' + language){ 
+        console.log('link', langAnchor)
+        console.log('language', language)
+        if(langAnchor === '/' + language || (langAnchor === '/' && language===null)){ 
             anchor.setAttribute('data-active','')
         }
     })
 
     const redirectToLanguage = anchor => {
-        localStorage.setItem('lang', anchor.dataset.url.replace('/',''))
+        if(anchor.dataset.url === ''){
+            localStorage.removeItem('lang') 
+        }else{
+            localStorage.setItem('lang', anchor.dataset.url.replace('/',''))
+        }
+       
         location.replace(anchor.dataset.url)
     }
 
     //FUNCTION ADS LINK TO EACH LANGUAGE     
     const setLangRedirect = () => {
         anchors.forEach(anchor => {
+            //THIS DIMS LANGUAGES IN THE SELECTION WE ARE NOT CURRENTLY ON
             if(language !== anchor.dataset.url.replace('/','')){ anchor.style.opacity='0.5'
-        console.log('language matches')}
+            }
+        
             anchor.addEventListener('click', () => {
                 redirectToLanguage(anchor)
             })
