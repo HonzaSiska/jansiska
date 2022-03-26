@@ -90,17 +90,26 @@ addEventListener('DOMContentLoaded', () => {
     }
 
     /// LANGUAGES SELECTION
+    const params = window.location.pathname.split('/')
+    const param = params[params.length-1]
 
-    const language = localStorage.getItem('lang')
-    if(!language){
-        localStorage.setItem('lang','cz')
+    //AUTO REDIRECT TO LANGUAGE IF LANGUAGE PARAM EXIST IN THE URL
+    let language = localStorage.getItem('lang')
+    if(!language && param ==="es"){
+        localStorage.setItem('lang','es')
 
+    }else if(!language && param ==='en'){
+        localStorage.setItem('lang','en')
+    }else{
+        localStorage.setItem('lang',param)
     }
+    //GET LANGUAGE AGAIN IN CASE IT WAS UPDATED ABOVE
+    language = localStorage.getItem('lang')
+
     const languageBar = document.querySelector('#language-selector')
     const anchors = document.querySelectorAll('.language-selector-anchor')
-    
 
-   
+    
     
     // MAKE LANGUAGES INVISIBLE FIRST AND THEN MAKE VISIBLE BASED ON URL
     anchors.forEach(anchor => {
