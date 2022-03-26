@@ -73,6 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
 });
 
+// const language = localStorage.getItem('lang')
+// if(!language){
+//     localStorage.setItem('lang','cz')
+// }
+
 const body = document.querySelector('body')
 addEventListener('DOMContentLoaded', () => {
     
@@ -87,6 +92,56 @@ addEventListener('DOMContentLoaded', () => {
         body.classList.add(`dark`)
     }
 
+    const language = localStorage.getItem('lang')
+    if(!language){
+        localStorage.setItem('lang','cz')
+    }
+    const languageBar = document.querySelector('#language-selector')
+    const anchors = document.querySelectorAll('.language-selector-anchor')
+    
+
+   
+    
+    // MAKE LANGUAGES INVISIBLE FIRST AND THEN MAKE VISIBLE BASED ON URL
+    anchors.forEach(anchor => {
+        let langAnchor = anchor.getAttribute('data-url')
+     
+        anchor.removeAttribute('data-active')  
+
+        if(langAnchor === '/' + language){ 
+            anchor.setAttribute('data-active','')
+        }
+    })
+
+    const redirectToLanguage = anchor => {
+        localStorage.setItem('lang', anchor.dataset.url.replace('/',''))
+        location.replace(anchor.dataset.url)
+    }
+
+    //FUNCTION ADS LINK TO EACH LANGUAGE     
+    const setLangRedirect = () => {
+        anchors.forEach(anchor => {
+            if(language !== anchor.dataset.url.replace('/','')){ anchor.style.opacity='0.5'
+        console.log('language matches')}
+            anchor.addEventListener('click', () => {
+                redirectToLanguage(anchor)
+            })
+        })
+    }
+
+     //SHOW ALL LANGUAGES
+     const showAllLanguages = () => {
+        anchors.forEach(anchor => {
+            anchor.setAttribute('data-active','')
+            languageBar.removeEventListener
+
+        })
+        setLangRedirect()
+    }
+    languageBar.addEventListener('click', showAllLanguages)
+
+    
+
 })
 
 
@@ -97,3 +152,6 @@ addEventListener('DOMContentLoaded', () => {
 //         console.log(path.getTotalLength()) 
 //     })
 // })
+
+// CHANGE  LANGUAGE
+

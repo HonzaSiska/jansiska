@@ -182,7 +182,7 @@ class ModeSwitch extends HTMLElement {
                     // this.wrapper.classList.remove('dark')
                     // this.wrapper.classList.remove('morph')
                     this.setAttribute('colormode','')
-                    localStorage.removeItem('mode')
+                     localStorage.removeItem('mode')
                    
                 }
                 if(e.target.id==='center-anchor'){

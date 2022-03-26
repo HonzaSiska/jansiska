@@ -152,7 +152,8 @@ a {
 
 }
 #switches{
-    display: block;
+    display: flex;
+    position: relative;
 }
 #language-selector-wrapper{
     transform: scale(1.3);
@@ -169,12 +170,14 @@ a {
     border: 1px solid grey;
     background: black;
     margin-top: 5px;
+    
 }
+
 .dark #language-selector{
     border: 1px solid rgb(187, 249, 174);
     background: black;
 }
-#language-selector-anchor{
+.language-selector-anchor{
     width: 23px;
     height: 23px;
     border: 1px solid black;
@@ -187,6 +190,13 @@ a {
     overflow: hidden; 
     color:rgb(124, 224, 85);
     font-weight: 600;
+    opacity: 0.5;
+    display: none;
+}
+.language-selector-anchor[data-active]{
+    opacity: 1;
+    display: block;
+    transition: all 1s forwards
 }
 
 
