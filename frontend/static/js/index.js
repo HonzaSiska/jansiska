@@ -172,3 +172,74 @@ addEventListener('DOMContentLoaded', () => {
 
 // CHANGE  LANGUAGE
 
+
+
+//=======================
+// THREE JS
+//=======================
+
+// Option 1: Import the entire three.js core library.
+import * as THREE from '/build/three.module.js';
+import vertexShader from '../shaders/vertex.js'
+import fragmentShader from '../shaders/fragment.js'
+import atmosphereVertexShader from '../shaders/atmosphereVertex.js'
+import atmosphereFragmentShader from '../shaders/atmosphereFragment.js'
+
+
+const scene = new THREE.Scene();
+
+
+
+const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000)
+
+const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true,
+    
+})
+renderer.setClearColor(0xffffff, 0);
+
+
+
+renderer.setSize(innerWidth, innerHeight)
+renderer.setPixelRatio(window.devicePixelRatio)//for higher res
+document.body.appendChild(renderer.domElement)
+
+//CREATE A SPHERE
+
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(5, 50, 50), new THREE.ShaderMaterial({
+    vertexShader,
+    fragmentShader, 
+    uniforms: {
+        globeTexture: {
+            value: new THREE.TextureLoader().load('../img/earth.jpg')
+        }
+    }
+}))
+//color: '#7ce055',
+
+scene.add(sphere)
+camera.position.z = 10
+
+
+
+//ATMOSPHERE
+
+const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(5, 50, 50), new THREE.ShaderMaterial({
+    vertexShader: atmosphereVertexShader,
+    fragmentShader: atmosphereFragmentShader, 
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide
+    
+}))
+//color: '#7ce055',
+atmosphere.scale.set(1.1, 1.1, 1.1)
+scene.add(atmosphere)
+camera.position.z = 10
+
+function animate(){
+    requestAnimationFrame(animate)
+    renderer.render(scene,camera) 
+    sphere.rotation.y += 0.002
+}
+animate()

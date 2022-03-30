@@ -1,3 +1,7 @@
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -13,11 +17,22 @@
 
 /* https://neumorphism.io/#6dac6c */
 body {
-    font-family: 'lucida grande','Roboto', sans-serif;
-    font-weight:100;
+    /* font-family: 'lucida grande','Roboto', sans-serif; */
+    /* font-family: 'IBM Plex Sans Arabic', sans-serif; */
+    font-family: 'Rajdhani', sans-serif;
+    font-style: italic;
     font-size: 18px;
     background: rgb(213, 247, 228);
     transition: all 1s ease 0s;
+}
+canvas{
+    background: rgb(213, 247, 228); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    
+
 }
 h1{
     color: var(--logo-green);
@@ -188,7 +203,7 @@ a {
     justify-content: center;
     align-items: center;
     overflow: hidden; 
-    color:rgb(124, 224, 85);
+    color:#7ce055;
     font-weight: 600;
     opacity: 0.5;
     display: none;
@@ -225,6 +240,9 @@ a {
     --logo-green: green; */
 
 @media only screen and (min-width: 920px){
+    h1{
+        font-size: 4.5em;
+    }
     .header__wrapper{
         display: flex;
         justify-content: space-between;
