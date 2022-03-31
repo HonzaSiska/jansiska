@@ -15,7 +15,7 @@ export default class extends AbstractView {
             </nav>
         
            
-            <h1>Inicio</h1>
+            <h1  class="title-stroke">Inicio</h1>
     `
     }
     

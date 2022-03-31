@@ -13,7 +13,7 @@ export default class extends AbstractView {
             </nav>
 
             
-            <h1>Vitej na me strance</h1>
+            <h1 class="title-stroke">Vitej na me strance</h1>
             
         `
     }

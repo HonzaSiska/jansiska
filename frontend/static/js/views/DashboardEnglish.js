@@ -15,7 +15,7 @@ export default class extends AbstractView {
             <a href="/resume/en" class="nav__link" data-link>Resume</a> 
         </nav>
       
-        <h1>Dashboard English</h1>
+        <h1 class="title-stroke">Dashboard English</h1>
     `
     }
     

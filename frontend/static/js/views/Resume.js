@@ -12,7 +12,7 @@ export default class extends AbstractView {
                 <a href="/resume/" class="nav__link" data-link>Resume</a> 
             </nav>
         
-            <h1>Zivotopis !!</h1>
+            <h1 class="title-stroke">Zivotopis !!</h1>
             
             
 

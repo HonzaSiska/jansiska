@@ -12,6 +12,7 @@ app.use('/img', express.static(path.resolve(__dirname, 'frontend', 'static','img
 app.use('/shaders/', express.static(path.resolve(__dirname, 'frontend', 'static','shaders')))
 
 
+
 app.get('/*', (req,res) => {
     res.sendFile(path.resolve(__dirname,'frontend','index.html'))
 })

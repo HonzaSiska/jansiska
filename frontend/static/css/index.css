@@ -8,7 +8,8 @@
     
 }
 :root{
-    --main-dark: rgb(0, 12, 0);
+    /* --main-dark: rgb(0, 12, 0); */
+     --main-dark: rgb(0, 0, 0); 
     --light-green: #92e571;
     --logo-green: green;
     --semi-green: rgb(16, 66, 2)
@@ -22,23 +23,49 @@ body {
     font-family: 'Rajdhani', sans-serif;
     font-style: italic;
     font-size: 18px;
-    background: rgb(213, 247, 228);
+    /* background: rgb(213, 247, 228); */
+    background: rgb(216, 248, 218); 
     transition: all 1s ease 0s;
 }
 canvas{
+    top: 100px;
+    left: 0;
     background: none; 
     position: absolute;
-    top: 0;
-    left: 0;
     z-index: -1000;
-
-
 }
+
 h1{
     color: var(--logo-green);
     text-align: center;
     font-size: 3rem;
+    font-weight: 500;
+    opacity: 0;
+    animation: transparency  1.0s ease-in-out forwards ;
+    
+    
 }
+@keyframes transparency {
+
+    from{
+        opacity:0;
+        
+    }
+    
+    to{
+        opacity:1;
+       
+    }
+}
+
+.title-stroke{
+    text-shadow:
+    -1px -1px 0 #CEF6DE,  
+    1px -1px 0 #CEF6DE,
+    -1px 1px 0 #CEF6DE,
+    1px 1px 0 #CEF6DE;
+}
+
 .dark .separator{
     border: none;
     display: none;
@@ -89,6 +116,9 @@ mode-switch{
 
 a {
     color: var(--logo-green);
+}
+.nav__link{
+    font-size: 2em;
 }
 .header__wrapper{
     padding-bottom: 30px;
@@ -241,7 +271,7 @@ a {
 
 @media only screen and (min-width: 920px){
     h1{
-        font-size: 4.5em;
+        font-size: 7.0em;
     }
     .header__wrapper{
         display: flex;
