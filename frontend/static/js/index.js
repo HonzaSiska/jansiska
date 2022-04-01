@@ -236,7 +236,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(earthSize, 50, 50), new T
 
 
 // scene.add(sphere) //used if group is not used
-// camera.position.z = 10
+camera.position.z = 10
 
 
 //ATMOSPHERE
