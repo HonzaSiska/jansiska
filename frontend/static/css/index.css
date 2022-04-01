@@ -26,8 +26,11 @@ body {
     /* background: rgb(213, 247, 228); */
     background: rgb(216, 248, 218); 
     transition: all 1s ease 0s;
+    overflow: hidden;
+    
 }
 canvas{
+   
     border-top: 1px solid var(--semi-green);
     top: 100px;
     left: 0;
@@ -39,7 +42,7 @@ canvas{
 h1{
     color: var(--logo-green);
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 500;
     opacity: 0;
     animation: transparency  1.0s ease-in-out forwards ;
@@ -272,7 +275,7 @@ a {
 
 @media only screen and (min-width: 920px){
     h1{
-        font-size: 7.0em;
+        font-size: 8.0em;
     }
     .header__wrapper{
         display: flex;

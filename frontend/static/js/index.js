@@ -196,7 +196,7 @@ const scene = new THREE.Scene();
 
 
 
-const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.1, 1000)
+const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight , 0.1, 1000)
 
 const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -216,7 +216,7 @@ let earthSize
 if(window.matchMedia("(min-width: 920px)").matches) {
     earthSize = 5
 }else{
-    earthSize = 3.6
+    earthSize = 3.0
 }
 
 
@@ -236,7 +236,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(earthSize, 50, 50), new T
 
 
 // scene.add(sphere) //used if group is not used
-camera.position.z = 10
+// camera.position.z = 10
 
 
 //ATMOSPHERE
@@ -259,6 +259,14 @@ scene.add(group)
 
 camera.position.z = 10
 
+// TO MOVE THE EARTH LATTERALY
+
+// if(window.matchMedia("(min-width: 920px)").matches) {
+//     camera.position.x = -2.5
+
+// }
+
+
 const mouse = {
     x: 1,
     y: 1
@@ -267,7 +275,9 @@ const mouse = {
 function animate(){
     requestAnimationFrame(animate)
     renderer.render(scene,camera) 
-    sphere.rotation.y += 0.002
+    sphere.rotation.y += 0.003
+    
+    
 
     //COMMENTED CODE IS FOR USE WITHOUT GSAP
     // group.rotation.y = mouse.x * 0.5
