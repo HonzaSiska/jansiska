@@ -216,7 +216,7 @@ let earthSize
 if(window.matchMedia("(min-width: 920px)").matches) {
     earthSize = 5
 }else{
-    earthSize = 3.0
+    earthSize = 3.5
 }
 
 
@@ -261,10 +261,10 @@ camera.position.z = 10
 
 // TO MOVE THE EARTH LATTERALY
 
-// if(window.matchMedia("(min-width: 920px)").matches) {
-//     camera.position.x = -2.5
+if(window.matchMedia("(max-width: 920px)").matches) {
+    camera.position.x = -2
 
-// }
+}
 
 
 const mouse = {
@@ -275,7 +275,7 @@ const mouse = {
 function animate(){
     requestAnimationFrame(animate)
     renderer.render(scene,camera) 
-    sphere.rotation.y += 0.003
+    sphere.rotation.y += 0.004
     
     
 
