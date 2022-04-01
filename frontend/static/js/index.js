@@ -261,10 +261,10 @@ camera.position.z = 10
 
 // TO MOVE THE EARTH LATTERALY
 
-if(window.matchMedia("(max-width: 920px)").matches) {
-    camera.position.x = -2
+// if(window.matchMedia("(max-width: 920px)").matches) {
+//     camera.position.x = -2
 
-}
+// }
 
 
 const mouse = {
