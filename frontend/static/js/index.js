@@ -216,7 +216,7 @@ let earthSize
 if(window.matchMedia("(min-width: 920px)").matches) {
     earthSize = 5
 }else{
-    earthSize = 3.8
+    earthSize = 3.4
 }
 
 
