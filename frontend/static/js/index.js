@@ -218,12 +218,18 @@ if(window.matchMedia("(min-width: 920px)").matches) {
 }else{
     earthSize = 3.8
 }
+
+
+let sphereImage  = '../img/earth2.jpg'
+
+
 const sphere = new THREE.Mesh(new THREE.SphereGeometry(earthSize, 50, 50), new THREE.ShaderMaterial({
     vertexShader,
     fragmentShader, 
     uniforms: {
         globeTexture: {
-            value: new THREE.TextureLoader().load('../img/earth.jpg')
+            // value: new THREE.TextureLoader().load('../img/earth.jpg')
+            value: new THREE.TextureLoader().load(sphereImage)
         }
     }
 }))
@@ -280,3 +286,6 @@ addEventListener('mousemove', (event) => {
     mouse.y = (event.clientY / innerHeight) * 2 + 1
     // console.log(mouse)
 })
+
+
+

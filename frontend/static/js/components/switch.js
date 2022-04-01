@@ -106,7 +106,7 @@ class ModeSwitch extends HTMLElement {
         
         
     }
-    //THIS ATTACHIS CLASS TO THE COMPONENT WRAPPER AFTER  WHEN MODE CHANGED
+    //THIS ATTACHES CLASS TO THE COMPONENT WRAPPER AFTER MODE CHANGED
     attachColormodeClass(){
         const colormode = this.getAttribute('colormode')
         this.shadowRoot.querySelector('#switch').setAttribute('class',`${colormode}`)
@@ -182,7 +182,7 @@ class ModeSwitch extends HTMLElement {
                     // this.wrapper.classList.remove('dark')
                     // this.wrapper.classList.remove('morph')
                     this.setAttribute('colormode','')
-                     localStorage.removeItem('mode')
+                    localStorage.removeItem('mode')
                    
                 }
                 if(e.target.id==='center-anchor'){
