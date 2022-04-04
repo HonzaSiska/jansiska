@@ -189,27 +189,31 @@ import vertexShader from '../shaders/vertex.js'
 import fragmentShader from '../shaders/fragment.js'
 import atmosphereVertexShader from '../shaders/atmosphereVertex.js'
 import atmosphereFragmentShader from '../shaders/atmosphereFragment.js'
+// import { Float32BufferAttribute } from "three";
 
 
 
 const scene = new THREE.Scene();
 
+const canvasContainer = document.querySelector('#canvas-wrapper')
 
-
-const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight , 0.1, 1000)
+const camera = new THREE.PerspectiveCamera(50, canvasContainer.offsetWidth / canvasContainer.offsetHeight , 0.1, 1000)
 
 const renderer = new THREE.WebGLRenderer({
     alpha: true,
+    canvas: document.querySelector('canvas'),
     antialias: true,
     
 })
+
+
 renderer.setClearColor(0xffffff, 0);
 
 
-
-renderer.setSize(innerWidth, innerHeight)
+console.log(canvasContainer)
+renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight)
 renderer.setPixelRatio(window.devicePixelRatio)//for higher res
-document.body.appendChild(renderer.domElement)
+// document.body.appendChild(renderer.domElement)
 
 //CREATE A SPHERE
 let earthSize  
@@ -236,7 +240,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(earthSize, 50, 50), new T
 
 
 // scene.add(sphere) //used if group is not used
-camera.position.z = 10
+//camera.position.z = 10
 
 
 //ATMOSPHERE
@@ -257,6 +261,33 @@ group.add(sphere)
 group.add(atmosphere)
 scene.add(group)
 
+const starGeometry = new THREE.BufferGeometry()
+let starColor 
+
+if(document.body.classList.contains('dark')) {
+    starColor = '#92e571'
+}else{
+    starColor = '#008000'
+}
+const starMaterial = new THREE.PointsMaterial({
+    color: starColor
+})
+// #008000
+const stars = new THREE.Points(starGeometry, starMaterial)
+
+const starVertices = []
+for (let i = 0; i < 50000; i++){
+    const x = (Math.random() - 0.5) * 2000
+    const y = (Math.random() - 0.5) * 2000
+    const z = -Math.random() * 500
+    starVertices.push(x,y,z)
+    
+}
+starGeometry.setAttribute('position',new THREE.Float32BufferAttribute(starVertices, 3))
+
+scene.add(stars)
+console.log(stars)
+console.log(starVertices)
 camera.position.z = 10
 
 // TO MOVE THE EARTH LATTERALY
@@ -283,6 +314,7 @@ function animate(){
     // group.rotation.y = mouse.x * 0.5
     // group.rotation.x =  mouse.y
     gsap.to(group.rotation, {
+        // x: -mouse.y * 0.5,
         y: mouse.x * 0.5,
         duration: 2
 
