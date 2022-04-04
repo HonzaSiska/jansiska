@@ -26,19 +26,19 @@ body {
     /* background: rgb(213, 247, 228); */
     background: rgb(216, 248, 218); 
     transition: all 1s ease 0s;
-    overflow: hidden;
+    /* overflow: hidden; */
     
 }
+
 #canvas-wrapper{
    
     border-top: 1px solid var(--semi-green);
     top: 100px;
-    
     background: none; 
     position: absolute;
     z-index: -1000;
     width: 100%;
-    height: 90%
+    height: 90%;
     
     
 }
@@ -50,6 +50,7 @@ h1{
     font-weight: 500;
     opacity: 0;
     animation: transparency  1.0s ease-in-out forwards ;
+    /* box-shadow: 0px 0px 15px -10px #92e571; */
     
     
 }
@@ -110,6 +111,9 @@ mode-switch{
     color: var(--logo-green);
     font-weight: 500;
 }
+/* .dark .nav__link {
+    color: var(--light-green);  
+} */
 
 .nav__link:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -260,6 +264,9 @@ a {
     font-size: 2em;
     width: 80%;
     margin: auto;
+    border-radius: 20px;
+    padding: 50px;
+    /* box-shadow: 0px 0px 15px -10px #92e571; */
 }
 .dark .description{
     color: var(--light-green);
