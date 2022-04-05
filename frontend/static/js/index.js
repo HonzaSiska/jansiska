@@ -167,6 +167,55 @@ addEventListener('DOMContentLoaded', () => {
 })
 
 
+//TIMELINE OPEN / CLOSE
+
+addEventListener('DOMContentLoaded', () => {
+
+    // OPEN ON CARRET CLICK
+    const carrets = document.querySelectorAll('.carret-bottom')
+
+    carrets.forEach((carret)=> {
+        
+        const id = carret.getAttribute('data-id')
+        carret.addEventListener('click', (e) => {
+            const descSection = document.querySelector(`[data-desc="${id}"]`)
+            // descSection.style.transition="all 300ms ease-in"
+            descSection.style.height="auto"
+            descSection.style.overflow="visible"
+            carret.style.visibility="hidden"
+            const descSectionWrapper = document.querySelector(`[data-descwrapper="${id}"]`)
+            console.log('desc', descSectionWrapper)
+            descSectionWrapper.style.border='1px solid var(--light-blue)'
+            const pointer = document.querySelector(`[data-pointer="${id}"]`)
+            
+            pointer.style.animation="flash 1s 3"
+            
+        })
+    })
+
+    // CLOSE ON POINTER CLICK
+    const pointers = document.querySelectorAll('.close-desc-section-btn')
+
+    pointers.forEach(pointer => {
+        
+        pointer.addEventListener('click', (e)=> {
+            const id = pointer.getAttribute('data-pointer')
+            const descSection = document.querySelector(`[data-desc="${id}"]`)
+            const carret = document.querySelector(`[data-id="${id}"]`)
+            descSection.style.height="50px"
+            descSection.style.overflow="hidden"
+            carret.style.visibility="visible"
+
+            const descSectionWrapper = document.querySelector(`[data-descwrapper="${id}"]`)
+            descSectionWrapper.style.border='none'
+            
+        })
+    })
+})
+
+
+
+
 // addEventListener('DOMContentLoaded', () => {
 //     const paths = document.querySelectorAll('#logo path')
 
