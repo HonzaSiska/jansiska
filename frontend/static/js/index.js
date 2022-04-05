@@ -169,10 +169,13 @@ addEventListener('DOMContentLoaded', () => {
 
 //TIMELINE OPEN / CLOSE
 
-addEventListener('DOMContentLoaded', () => {
+const app = document.querySelector('#app')
+app.addEventListener('mousemove', () => {
+    
 
     // OPEN ON CARRET CLICK
-    const carrets = document.querySelectorAll('.carret-bottom')
+    
+    const carrets = app.querySelectorAll('.carret-bottom')
 
     carrets.forEach((carret)=> {
         
@@ -194,7 +197,7 @@ addEventListener('DOMContentLoaded', () => {
     })
 
     // CLOSE ON POINTER CLICK
-    const pointers = document.querySelectorAll('.close-desc-section-btn')
+    const pointers = app.querySelectorAll('.close-desc-section-btn')
 
     pointers.forEach(pointer => {
         
@@ -215,16 +218,6 @@ addEventListener('DOMContentLoaded', () => {
 
 
 
-
-// addEventListener('DOMContentLoaded', () => {
-//     const paths = document.querySelectorAll('#logo path')
-
-//     paths.forEach(path => {
-//         console.log(path.getTotalLength()) 
-//     })
-// })
-
-// CHANGE  LANGUAGE
 
 
 
