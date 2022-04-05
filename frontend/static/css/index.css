@@ -340,7 +340,7 @@ a {
     border-left: 5px dotted var(--orange);
     /* border-bottom: 5px dotted var(--light-blue); */
     margin-left: 50px;
-    height:50px;
+    height:0px;
     overflow: hidden;
     
 }

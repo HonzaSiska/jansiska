@@ -205,7 +205,7 @@ app.addEventListener('mousemove', () => {
             const id = pointer.getAttribute('data-pointer')
             const descSection = document.querySelector(`[data-desc="${id}"]`)
             const carret = document.querySelector(`[data-id="${id}"]`)
-            descSection.style.height="50px"
+            descSection.style.height="0px"
             descSection.style.overflow="hidden"
             carret.style.visibility="visible"
 
