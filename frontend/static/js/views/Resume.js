@@ -4,8 +4,24 @@ export default class extends AbstractView {
     constructor(params){
         super(params)
         this.setTitle('Zivotopis')
+        
+    }
+
+    async getData(){
+        const data = await fetch('/cz')
+     
+        const jsonData = await data.json()
+
+        //HERE COMES THE TEMPLATE
+        //LOOP THOUGH JSON DATA AND CREATE HTML TO BE DISPLAYED IN getHtml()
+        //RETURN TEMPLATE 
+        
+        return jsonData[0].cz[0].title
     }
     async getHtml(){
+
+        let data = await this.getData()
+        
         return `
             <nav class="nav">
                 <a href="/" class="nav__link" data-link>Home</a>
@@ -128,6 +144,9 @@ export default class extends AbstractView {
                             <p>
                                 
                             Trilingual and goal-oriented person with tremendous work ethic and strong communication skills. Developed strengths during a diverse career in various countries and career fields, valuable sales and small business management skills as a tropical fruit winery owner/operator. Proficient at using computers.
+                            -------------------
+                            -------------------
+                            ${data}
 
                             </p>
                         </div>
