@@ -106,7 +106,12 @@ addEventListener('DOMContentLoaded', () => {
     }else if(!language && param ==='en'){
         localStorage.setItem('lang','en')
     }else{
-        localStorage.setItem('lang',param)
+        if(param ==='resume'){
+            localStorage.setItem('lang','')
+        }else{
+            localStorage.setItem('lang',param)
+        }
+        
     }
     //GET LANGUAGE AGAIN IN CASE IT WAS UPDATED ABOVE
     language = localStorage.getItem('lang')
