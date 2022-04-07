@@ -2,7 +2,7 @@ const express = require('express')
 
 const path = require('path')
 const fs = require('fs')
-const dataDB = require('./data.json')
+
 const app = express()
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
 
@@ -10,6 +10,7 @@ app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static'))
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')))
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')))
 app.use('/img', express.static(path.resolve(__dirname, 'frontend', 'static','img')))
+// app.use('/img', express.static(path.resolve(__dirname, 'frontend', 'static','data')))
 app.use('/shaders/', express.static(path.resolve(__dirname, 'frontend', 'static','shaders')))
 
 
@@ -27,7 +28,7 @@ const writeData = (data) => {
 //FUNCTION TO READ DATA FROM DB
 
 const readData =  () => {
-    const json =  fs.readFileSync('./data.json', 'utf8')
+    const json =  fs.readFileSync('./frontend/static/data/data.json', 'utf8')
     return json
 }
 

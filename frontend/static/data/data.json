@@ -1,0 +1,71 @@
+
+{
+    "cz":
+    [
+        {
+            "year":"1995-2000",
+            "title": "HOTEL SLEZAN",
+            "desc": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse sagittis ultrices augue. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Aliquam erat volutpat. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante."
+        },
+        {
+            "year":"2000-2014",
+            "title": "SISKA BUILDING SYSTEM",
+            "desc": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse sagittis ultrices augue. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Aliquam erat volutpat. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante.ortis a enim. Aliquam erat volutpat. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante."
+        },
+        {   "year":"2014-2018",
+            "title": "MADERAS SOSTENIBLES & CIUDAD DE CITRICOS",
+            "desc": "Trilingual and goal-oriented person with tremendous work ethic and strong communication skills. Developed strengths during a diverse career in various countries and career fields, valuable sales and small business management skills as a tropical fruit winery owner/operator. Proficient at using computers."
+        },
+        {   "year":"2019",
+            "title": "SLADOVNA BRUNTAL",
+            "desc": "Výroba naší firmy navazuje na tradici vaření piva v prostorách dnešního provozu již od roku 1557. V roce 2008 se můžeme pochlubit dosažením stého výročí výroby sladových výtažků. Jako jediná firma v České republice vyrábíme sladové výtažky přímo z vlastního sladu a s respektem k původním technologiím. Stejně jako před půl tisíciletím, i v 21. století jsme tady pro Vás připraveni s nabídkou nejkvalitnějších sladovnických výrobků.TEST TSETS"
+        }
+    ],
+
+
+    "es": 
+    [
+        {
+            "year":"1995-2000",
+            "title": "HOTEL SLEZAN",
+            "desc": "Los oficiales rusos brindan liderazgo táctico y entrenamiento para sus pelotones o batallones. Los sargentos del ejército ruso a menudo solo controlan el equipo o siguen órdenes, es decir, no lideran a nadie. Esto significa que los oficiales se ven obligados a asumir más funciones en la dirección. Por lo tanto, es más probable que un oficial ruso muera en combate que los oficiales de muchos otros ejércitos."
+        },
+        {
+            "year":"2000-2014",
+            "title": "SISKA BUILDING SYSTEM",
+            "desc": "Pero los comandantes militares rusos prefieren utilizar las Fuerzas Aerotransportadas, ya que estas unidades suelen estar mucho mejor preparadas tanto física como mentalmente."
+        },
+        {   "year":"2014-2018",
+            "title": "MADERAS SOSTENIBLES & CIUDAD DE CITRICOS",
+            "desc": "Cranny-Evans explica que las operaciones de armas combinadas de Rusia fueron relativamente lentas y las unidades aerotransportadas en la línea del frente se quedaron sin tropas regulares ni apoyo aéreo."
+        },
+        {   "year":"2019",
+            "title": "SLADOVNA BRUNTAL",
+            "desc": "Por ejemplo, un alférez de las fuerzas especiales de la guardia nacional, Ruslan Galyamov, según los datos publicados, murió el 11 de marzo y fue enterrado el 26 de marzo"
+        }
+    ],
+
+
+    "en": 
+    [
+        {
+            "year":"1995-2000",
+            "title": "HOTEL SLEZAN",
+            "desc": "In a video address, Borys Filatov said anyone who is not directly involved in critical infrastructure should leave the city in central Ukraine for safer places in the west of the country, given the worsening situation in Donbas.Dnipro, which had a pre-war population of around one million, is currently seeing an influx of people who have been evacuated from areas to its east.The recommendation follows similar warnings by authorities in Luhansk and Donetsk - which make up the Donbas - where the Russian military is expected to ramp up attacks in the coming weeks."
+        },
+        {
+            "year":"2000-2014",
+            "title": "SISKA BUILDING SYSTEM",
+            "desc": "British national David Smith, 57, is accused of collecting information from the embassy and passing it to a person he believed was a Russian representative, among other allegations.British national David Smith, 57, is accused of collecting information from the embassy and passing it to a person he believed was a Russian representative, among other allegations."
+        },
+        {   "year":"2014-2018",
+            "title": "MADERAS SOSTENIBLES & CIUDAD DE CITRICOS",
+            "desc": "It's alleged that Smith tried to communicate by letter with General Major Sergey Chukhurov, the Russian military attache based out of the Russian Embassy in Berlin.It's alleged that Smith tried to communicate by letter with General Major Sergey Chukhurov, the Russian military attache based out of the Russian Embassy in Berlin."
+        },
+        {   "year":"2019",
+            "title": "SLADOVNA BRUNTAL",
+            "desc": "As we wait for that UN vote on whether Russia is to be suspended from the Human Rights Council, here is a recap of what Nato Secretary General Jens Stoltenberg just said following the alliance summit in Brussels.As we wait for that UN vote on whether Russia is to be suspended from the Human Rights Council, here is a recap of what Nato Secretary General Jens Stoltenberg just said following the alliance summit in Brussels."
+        }
+    ]
+
+}
