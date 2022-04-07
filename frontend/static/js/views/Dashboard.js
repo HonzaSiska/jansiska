@@ -8,11 +8,9 @@ export default class extends AbstractView {
     async getHtml(){
         return `
             <nav class="nav">
-                <a href="/" class="nav__link" data-link>Home</a>
-                <a href="/resume" class="nav__link" data-link>Resume</a> 
+                <a href="/" class="nav__link" data-link>Domů</a>
+                <a href="/resume" class="nav__link" data-link>Zivotopis</a> 
             </nav>
-
-            
             <h1 class="title-stroke">Vitej na me strance</h1>
 
             <main>

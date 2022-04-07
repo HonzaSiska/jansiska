@@ -10,8 +10,8 @@ export default class extends AbstractView {
         // console.log(this.params.id)
         return `
             <nav class="nav">
-                <a href="/en" class="nav__link" data-link>Home</a>
-                <a href="/resume/en" class="nav__link" data-link>Resume</a> 
+                <a href="/es" class="nav__link" data-link>Inicio</a>
+                <a href="/resume/es" class="nav__link" data-link>Currículum</a>
             </nav>
         
            

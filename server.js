@@ -32,7 +32,7 @@ const readData =  () => {
 }
 
 
-app.get('/cz', (req, res) => {
+app.get('/data', (req, res) => {
     try{
         const data = readData()
         console.log('received', typeof data)
@@ -42,6 +42,8 @@ app.get('/cz', (req, res) => {
         return res.json(e)
     }
 })
+
+
 
 app.get('/*', (req,res) => {
     res.sendFile(path.resolve(__dirname,'frontend','index.html'))
