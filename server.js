@@ -4,6 +4,8 @@ const path = require('path')
 const fs = require('fs')
 
 const app = express()
+const session = require('express-session')
+const { LogLuvEncoding } = require('three')
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
 
 //THREE JS STATIC ROUTES
@@ -13,6 +15,27 @@ app.use('/img', express.static(path.resolve(__dirname, 'frontend', 'static','img
 // app.use('/img', express.static(path.resolve(__dirname, 'frontend', 'static','data')))
 app.use('/shaders/', express.static(path.resolve(__dirname, 'frontend', 'static','shaders')))
 
+const dotenv = require('dotenv').config()
+
+app.use(express.json())
+app.use(express.urlencoded({extended: true}));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    name: process.env.SESSION_NAME,
+    cookie: { 
+        secure: true,
+        maxAge: 1000 * 60 * 60 * 24 * 7 ,
+        sameSite: true, //= strict
+        secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
+     }
+}))
+
+//ADD ROUTE TO COMPARE PASSWORDS
+
+
+
 
 
 
@@ -20,9 +43,8 @@ app.use('/shaders/', express.static(path.resolve(__dirname, 'frontend', 'static'
 // FUNCTION TO WRITE DATA FROM DB
 
 const writeData = (data) => {
-    const jsonData = JSON.stringify(data)
-    console.log(data)
-    console.log(jsonData)
+    const savedFile =  fs.writeFileSync("./frontend/static/data/data.json", data) 
+    return savedFile  
 }
 
 //FUNCTION TO READ DATA FROM DB
@@ -31,6 +53,13 @@ const readData =  () => {
     const json =  fs.readFileSync('./frontend/static/data/data.json', 'utf8')
     return json
 }
+
+
+app.post('/update/:index', async (req,res) => {
+    const body = req.body
+    const param = req.params.index
+    res.json({param})
+})
 
 
 app.get('/data', (req, res) => {
@@ -43,6 +72,84 @@ app.get('/data', (req, res) => {
         return res.json(e)
     }
 })
+
+app.post('/add', async (req, res) => {
+    console.log('body', req.body)
+    const {
+        year, 
+        title_cz, 
+        title_es,
+        title_en,
+        desc_cz,
+        desc_es,
+        desc_en
+    } = req.body
+
+   
+    //GET DATA FROM JSON DB
+    const fetchedData =  fs.readFileSync('./frontend/static/data/data.json', 'utf8')
+    
+    let parsedData;
+    if(fetchedData){
+        parsedData = JSON.parse(fetchedData)
+    }else{
+        parsedData = { cz:[], es: [], en: [] }
+    }
+    console.log('dfata from DB', parsedData)
+    
+
+    //UPDATE OBJECT RETRIEVED FROM JSON DB
+    const czech = {}
+    czech.year = year
+    czech.title = title_cz
+    czech.desc = desc_cz
+
+    console.log('czech', czech)
+
+    const esp = {}
+    esp.year = year
+    esp.title = title_es
+    esp.desc = desc_es
+
+    console.log('esp', esp)
+
+    const eng = {}
+    eng.year = year
+    eng.title = title_en
+    eng.desc = desc_en
+
+    console.log('eng', eng)
+
+    parsedData.cz.push(czech)
+    parsedData.es.push(esp)
+    parsedData.en.push(eng)
+
+    console.log('appendedDAta',parsedData)
+
+    const updatedFile = JSON.stringify(parsedData)
+     
+    writeData(updatedFile)
+
+    try{
+        const data = readData()
+        return res.send(data)
+
+    }catch(e){
+        return res.json(e)
+    }
+
+     
+
+    
+
+    //UPDATE THE JSON FILE
+    
+})
+app.get('/admin', async (req, res) => {
+    res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+})
+
+
 
 
 

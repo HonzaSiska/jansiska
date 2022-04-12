@@ -1,0 +1,28 @@
+
+<div id="admin-container">
+    <h1>Admin</h1>
+    <p class="error"></p>
+    <form style="background-color: lightgrey;padding: 10px;" id="add-tl-item-form" name="add-tl-item-form" method="POST" action="/add" submit="return false;">
+        <label>Rok</label> 
+        <input type="text" name="year" id="year" required>
+        <hr>
+        <label>Title-CZ</label> 
+        <input type="text" name="title_cz" id="title_cz" required>
+        <label>Title-ES</label> 
+        <input type="text" name="title_es" id="title_es" required>
+        <label>Title-EN</label> 
+        <input type="text" name="title_en" id="title_en" required>
+        <hr>
+        <label>Popis-CZ</label> 
+        <textarea rows="10" cols="40" type="text" name="desc_cz" id="desc_cz" required></textarea>
+        <label>Popis-ES</label> 
+        <textarea rows="10" cols="40" type="text" name="desc_es" id="desc_es" required></textarea>
+        <label>Popis-EN</label> 
+        <textarea rows="10" cols="40" type="text" name="desc_en"  id="desc_en" required></textarea>
+        <input form="add-tl-item-form" type="submit" id="submit-tl-item-btn">
+    </form>
+    <div id="admin-content">
+
+    </div>
+</div>
+<script type="module" src="/static/js/admin.js"></script>
