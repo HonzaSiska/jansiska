@@ -148,6 +148,7 @@ a {
     margin: 20px;
     width: 300px;
     height: 90px;
+    transform: skew(-0.04turn, 0.1deg);
     
 }
 #logo path:nth-child(1) {
