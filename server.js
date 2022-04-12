@@ -5,7 +5,7 @@ const fs = require('fs')
 
 const app = express()
 const session = require('express-session')
-const { LogLuvEncoding } = require('three')
+// const { LogLuvEncoding } = require('three')
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
 
 //THREE JS STATIC ROUTES
