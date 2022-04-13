@@ -58,7 +58,42 @@ const readData =  () => {
 app.post('/update/:index', async (req,res) => {
     const body = req.body
     const param = req.params.index
-    res.json({param})
+
+
+    let db =  readData()
+    db = JSON.parse(db)
+   
+    
+    const cz = db.cz[param]
+    const es = db.es[param]
+    const en = db.en[param]
+    
+    cz.desc = body.desc_cz
+    cz.title = body.title_cz
+    cz.year = body.year
+
+    es.desc = body.desc_es
+    es.title = body.title_es
+    es.year = body.year
+
+    en.desc = body.desc_en
+    en.title = body.title_en
+    en.year = body.year
+
+    db.cz[param]= cz
+    db.es[param]= es
+    db.en[param]= en
+    db = JSON.stringify(db)
+    
+    try{
+        const updatedDb = writeData(db)
+        const result = readData()
+        return res.send(result)
+
+    }catch(e){
+        return res.send(e)
+    }
+    
 })
 
 
