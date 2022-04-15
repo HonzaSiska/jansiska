@@ -204,10 +204,13 @@ app.post('/add', async (req, res) => {
 })
 app.get('/admin', async (req, res) => {
     console.log('session username',req.session.username)
+    console.log('session ',req.session)
     if(req.session.username){
         return res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+    }else{
+        return res.redirect('/')
     }
-    return res.redirect('/')
+    
     
     // console.log(req.session)
     // res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
@@ -219,7 +222,7 @@ app.get('/admin', async (req, res) => {
 
 
 app.get('/*', (req,res) => {
-    req.session.destroy()
+    // req.session.destroy()
     res.sendFile(path.resolve(__dirname,'frontend','index.html'))
 })
 
