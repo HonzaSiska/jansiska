@@ -67,7 +67,7 @@ app.post('/login', async (req, res) => {
             return res.send(error)
     }else{
         req.session.username = body.username
-        
+    
         // res.redirect('/admin')
         return res.send({})
     }
@@ -202,11 +202,12 @@ app.post('/add', async (req, res) => {
     
 })
 app.get('/admin', async (req, res) => {
-    if(req.session.username){
-        res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
-    }else{
-        return res.redirect('/')
-    }
+    // if(req.session.username){
+    //     res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+    // }else{
+    //     return res.redirect('/')
+    // }
+    res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
     
 })
 
