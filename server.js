@@ -5,6 +5,7 @@ const fs = require('fs')
 
 const app = express()
 const session = require('express-session')
+// app.use(cors({credentials: true, origin: origin}));
 // const { LogLuvEncoding } = require('three')
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
 
@@ -31,6 +32,7 @@ app.use(session({
         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
      }
 }))
+app.set('trust proxy', 1)
 
 //ADD ROUTE TO COMPARE PASSWORDS
 
