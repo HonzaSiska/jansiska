@@ -73,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
 
     
+
+    
 });
 
 
@@ -221,6 +223,83 @@ app.addEventListener('mousemove', () => {
     })
 })
 
+//OPEN LOGIN
+
+const loginWrapper = document.querySelector('#login-form-wrapper')
+const cog = document.querySelector('#cog')
+console.log("cog", cog)
+const loginBtn = document.querySelector('#login-btn')
+const cancelBtn = document.querySelector('#cancel-btn')
+
+cancelBtn.addEventListener('click', () => {
+    loginWrapper.classList.remove('login-open')
+    loginWrapper.classList.add('login-close')
+})
+
+
+cog.addEventListener('click', () => {
+    loginWrapper.classList.add('login-open')
+    loginWrapper.classList.remove('login-close')
+    const userName = document.querySelector('#username')
+    const password = document.querySelector('#password')
+    const errorBox = document.querySelector('#error')
+    // FORM CLEANUP
+    userName.value =''
+    password.value=''
+    errorBox.innerHTML=''
+    console.log(cog)
+})
+
+//LOGIN
+
+const loginForm = document.querySelector('#login-form')
+loginBtn.addEventListener('click', async (e) => {
+    e.preventDefault()
+    console.log(e)
+    let errors = []
+    const userName = document.querySelector('#username')
+    const password = document.querySelector('#password')
+    const errorBox = document.querySelector('#error')
+
+    if(userName.value === '')errors.push('Provide Username !!')
+    if(password.value === '')errors.push('Provide Password !!')
+    console.log(errors)
+    if(errors.length >0 ){
+        let html = ''
+        errors.forEach(error => {
+            html += `<li>${error}</li>`
+        })
+        errorBox.innerHTML = html
+        return false
+    }
+    const body = {}
+    body.username = userName.value
+    body.password = password.value
+    try{
+        const submittedData = await fetch(`/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        })
+        const result = await submittedData.json()
+        console.log(result.error)
+        if(result.error) return errorBox.innerHTML = result.error
+        location.replace('/admin')
+
+        
+        
+        
+    }catch(e){
+        console.log(e)
+    }
+
+
+   
+
+    
+}) 
 
 
 

@@ -55,6 +55,26 @@ const readData =  () => {
 }
 
 
+app.post('/login', async (req, res) => {
+    const body = req.body 
+    console.log(body)
+    console.log('env pass', process.env.PASS)
+    console.log('env user', process.env.USERNAME)
+    let error = {}
+    
+    if(process.env.USERNAME !== body.username && process.env.PASS !== body.password){
+        error.error = 'Enter valid credentials !'
+            return res.send(error)
+    }else{
+        req.session.username = body.username
+        
+        // res.redirect('/admin')
+        return res.send({})
+    }
+   
+})
+
+
 app.post('/update/:index', async (req,res) => {
     const body = req.body
     const param = req.params.index
@@ -178,10 +198,16 @@ app.post('/add', async (req, res) => {
     
 
     //UPDATE THE JSON FILE
+
     
 })
 app.get('/admin', async (req, res) => {
-    res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+    if(req.session.username){
+        res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+    }else{
+        return res.redirect('/')
+    }
+    
 })
 
 
