@@ -66,7 +66,7 @@ app.post('/login', async (req, res) => {
         error.error = 'Enter valid credentials !'
             return res.send(error)
     }else{
-        req.session.username = body.username
+        req.session.username = process.env.USERNAME
     
         // res.redirect('/admin')
         return res.send({})
