@@ -59,15 +59,16 @@ app.post('/login', async (req, res) => {
     const body = req.body 
     console.log(body)
     console.log('env pass', process.env.PASS)
-    console.log('env user', process.env.USERNAME)
+    console.log('env user', process.env.USER)
+    console.log('process.env',process.env)
     let error = {}
     
-    if(process.env.USERNAME !== body.username && process.env.PASS !== body.password){
+    if(process.env.USER!== body.username && process.env.PASS !== body.password){
         error.error = 'Enter valid credentials !'
             return res.send(error)
     }else{
-        req.session.username = process.env.USERNAME
-    
+        req.session.username = body.username
+        console.log('session set', req.session.username)
         // res.redirect('/admin')
         return res.send({})
     }
@@ -218,6 +219,7 @@ app.get('/admin', async (req, res) => {
 
 
 app.get('/*', (req,res) => {
+    req.session.destroy()
     res.sendFile(path.resolve(__dirname,'frontend','index.html'))
 })
 
