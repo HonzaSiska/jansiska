@@ -202,12 +202,14 @@ app.post('/add', async (req, res) => {
     
 })
 app.get('/admin', async (req, res) => {
-    // if(req.session.username){
-    //     res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
-    // }else{
-    //     return res.redirect('/')
-    // }
-    res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+    console.log('session username',req.session.username)
+    if(req.session.username){
+        return res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
+    }
+    return res.redirect('/')
+    
+    // console.log(req.session)
+    // res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
     
 })
 
