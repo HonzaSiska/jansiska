@@ -65,11 +65,11 @@
         <canvas></canvas>
     </div>
     <div id="login-form-wrapper" class="">
-      <form id="login-form">
+      <form id="login-form" method="post" action="/login">
         <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username">
+        <input type="text" name="username" id="username" placeholder="Username">
         <br>
-        <input type="password" id="password" placeholder="Password">
+        <input type="password" name="password" id="password" placeholder="Password">
         <br>
         <input type="submit" id="login-btn" value="LOGIN">
         <input type="button" id="cancel-btn" value="CANCEL">

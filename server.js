@@ -1,13 +1,13 @@
 const express = require('express')
-const redis = require('redis')
-const connectRedis = require('connect-redis')
+const session = require('express-session')
+// const redis = require('redis')
+// const connectRedis = require('connect-redis')
 const path = require('path')
 const fs = require('fs')
-
 const app = express()
-const session = require('express-session')
+
 // app.use(cors({credentials: true, origin: origin}));
-// const { LogLuvEncoding } = require('three')
+
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
 
 //THREE JS STATIC ROUTES
@@ -23,21 +23,24 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
 
-const RedisStore = connectRedis(session)
+// const RedisStore = connectRedis(session);
 
-const redisClient = redis.createClient({
-    port: 6379,
-    host: 'localhost'
-})
+// // 1 configure our redis
+// const redisClient = redis.createClient({
+//     port: 6379,
+//     host: 'localhost'
+// });
 
 
+app.set('trust proxy', 1)
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     name: process.env.SESSION_NAME,
     cookie: { 
-        secure: false,
+        secure: true,         
+        httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7 ,
         sameSite: true, //= strict
         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
@@ -52,12 +55,13 @@ app.use(session({
 //     name: process.env.SESSION_NAME,
 //     cookie: { 
 //         secure: true,
+//         httpOnly: true,
 //         maxAge: 1000 * 60 * 60 * 24 * 7 ,
-//         sameSite: true, //= strict
+//         sameSite: 'strict', //= strict
 //         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
 //      }
 // }))
-app.set('trust proxy', 1)
+
 
 //ADD ROUTE TO COMPARE PASSWORDS
 
@@ -92,12 +96,12 @@ app.post('/login', async (req, res) => {
     
     if(process.env.USER!== body.username && process.env.PASS !== body.password){
         error.error = 'Enter valid credentials !'
-            return res.send(error)
+        return res.redirect('/')
     }else{
         req.session.username = body.username
         console.log('session set', req.session.username)
-        // res.redirect('/admin')
-        return res.send({})
+        return res.redirect('/admin')
+        //return res.send({})
     }
    
 })

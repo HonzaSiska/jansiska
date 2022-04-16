@@ -272,28 +272,30 @@ loginBtn.addEventListener('click', async (e) => {
         errorBox.innerHTML = html
         return false
     }
-    const body = {}
-    body.username = userName.value
-    body.password = password.value
-    try{
-        const submittedData = await fetch(`/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body)
-        })
-        const result = await submittedData.json()
-        console.log(result.error)
-        if(result.error) return errorBox.innerHTML = result.error
-        location.replace('/admin')
+    return loginForm.submit()
+
+    // const body = {}
+    // body.username = userName.value
+    // body.password = password.value
+    // try{
+    //     const submittedData = await fetch(`/login`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(body)
+    //     })
+    //     const result = await submittedData.json()
+    //     console.log(result.error)
+    //     if(result.error) return errorBox.innerHTML = result.error
+    //     location.replace('/admin')
 
         
         
         
-    }catch(e){
-        console.log(e)
-    }
+    // }catch(e){
+    //     console.log(e)
+    // }
 
 
    
