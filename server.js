@@ -58,15 +58,10 @@ app.use(session({
     }),
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
-    name: process.env.SESSION_NAME,
+    
     cookie: { 
-        secure: true,
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 * 7 ,
-        sameSite: 'strict', //= strict
-        secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
-     }
+        maxAge: 86400000 ,
+    }
 }))
 
 
