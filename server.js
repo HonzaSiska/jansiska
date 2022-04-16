@@ -20,7 +20,7 @@ const dotenv = require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
-var fileStoreOptions = {};
+var fileStoreOptions = {path:'./sessions'};
 app.set('trust proxy', 1)
 // app.use(session({
 //     secret: process.env.SESSION_SECRET,
@@ -78,9 +78,7 @@ const readData =  () => {
 app.post('/login', async (req, res) => {
     const body = req.body 
     console.log(body)
-    console.log('env pass', process.env.PASS)
-    console.log('env user', process.env.USER)
-    console.log('process.env',process.env)
+
     let error = {}
     
     if(process.env.USER!== body.username && process.env.PASS !== body.password){
@@ -200,7 +198,6 @@ app.post('/add', async (req, res) => {
     parsedData.es.push(esp)
     parsedData.en.push(eng)
 
-    console.log('appendedDAta',parsedData)
 
     const updatedFile = JSON.stringify(parsedData)
      
