@@ -4,6 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const app = express()
 var FileStore = require('session-file-store')(session);
+const MemoryStore = require('memorystore')(session)
 // app.use(cors({credentials: true, origin: origin}));
 
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
@@ -20,7 +21,7 @@ const dotenv = require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
-var fileStoreOptions = {path:'/sessions'};
+var fileStoreOptions = {};
 app.set('trust proxy', 1)
 // app.use(session({
 //     secret: process.env.SESSION_SECRET,
@@ -36,8 +37,25 @@ app.set('trust proxy', 1)
 //      }
 // }))
 
+// app.use(session({
+//     store: new FileStore(fileStoreOptions),
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     name: process.env.SESSION_NAME,
+//     cookie: { 
+//         secure: true,
+//         httpOnly: true,
+//         maxAge: 1000 * 60 * 60 * 24 * 7 ,
+//         sameSite: 'strict', //= strict
+//         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
+//      }
+// }))
+
 app.use(session({
-    store: new FileStore(fileStoreOptions),
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
@@ -50,6 +68,7 @@ app.use(session({
         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
      }
 }))
+
 
 
 //ADD ROUTE TO COMPARE PASSWORDS
