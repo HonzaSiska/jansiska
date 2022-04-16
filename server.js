@@ -1,5 +1,6 @@
 const express = require('express')
-
+const redis = require('redis')
+const connectRedis = require('connect-redis')
 const path = require('path')
 const fs = require('fs')
 
@@ -20,18 +21,42 @@ const dotenv = require('dotenv').config()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
+
+
+const RedisStore = connectRedis(session)
+
+const redisClient = redis.createClient({
+    port: 6379,
+    host: 'localhost'
+})
+
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     name: process.env.SESSION_NAME,
     cookie: { 
-        secure: true,
+        secure: false,
         maxAge: 1000 * 60 * 60 * 24 * 7 ,
         sameSite: true, //= strict
         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
      }
 }))
+
+// app.use(session({
+//     store: new RedisStore({client: redisClient}),
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     name: process.env.SESSION_NAME,
+//     cookie: { 
+//         secure: true,
+//         maxAge: 1000 * 60 * 60 * 24 * 7 ,
+//         sameSite: true, //= strict
+//         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
+//      }
+// }))
 app.set('trust proxy', 1)
 
 //ADD ROUTE TO COMPARE PASSWORDS
