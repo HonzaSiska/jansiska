@@ -20,7 +20,7 @@ const dotenv = require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
-var fileStoreOptions = {path:'./sessions'};
+var fileStoreOptions = {path:'/sessions'};
 app.set('trust proxy', 1)
 // app.use(session({
 //     secret: process.env.SESSION_SECRET,
