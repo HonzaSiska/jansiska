@@ -1,11 +1,9 @@
 const express = require('express')
 const session = require('express-session')
-// const redis = require('redis')
-// const connectRedis = require('connect-redis')
 const path = require('path')
 const fs = require('fs')
 const app = express()
-
+var FileStore = require('session-file-store')(session);
 // app.use(cors({credentials: true, origin: origin}));
 
 app.use('/static', express.static(path.resolve(__dirname, 'frontend', 'static')))
@@ -22,45 +20,36 @@ const dotenv = require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
-
-// const RedisStore = connectRedis(session);
-
-// // 1 configure our redis
-// const redisClient = redis.createClient({
-//     port: 6379,
-//     host: 'localhost'
-// });
-
-
+var fileStoreOptions = {};
 app.set('trust proxy', 1)
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    name: process.env.SESSION_NAME,
-    cookie: { 
-        secure: true,         
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 * 7 ,
-        sameSite: true, //= strict
-        secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
-     }
-}))
-
 // app.use(session({
-//     store: new RedisStore({client: redisClient}),
 //     secret: process.env.SESSION_SECRET,
 //     resave: false,
 //     saveUninitialized: false,
 //     name: process.env.SESSION_NAME,
 //     cookie: { 
-//         secure: true,
+//         secure: true,         
 //         httpOnly: true,
 //         maxAge: 1000 * 60 * 60 * 24 * 7 ,
-//         sameSite: 'strict', //= strict
+//         sameSite: true, //= strict
 //         secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
 //      }
 // }))
+
+app.use(session({
+    store: new FileStore(fileStoreOptions),
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    name: process.env.SESSION_NAME,
+    cookie: { 
+        secure: true,
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24 * 7 ,
+        sameSite: 'strict', //= strict
+        secure: process.env.NODE_ENV === 'production' // sets to tru if in production mode
+     }
+}))
 
 
 //ADD ROUTE TO COMPARE PASSWORDS
