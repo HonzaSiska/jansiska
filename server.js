@@ -235,7 +235,6 @@ app.post('/add', async (req, res) => {
 })
 app.get('/admin', async (req, res) => {
     console.log('session username',req.session.username)
-    req.session.username="siskajan@hotmail.com"
     if(req.session.username){
         return res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
     }else{
