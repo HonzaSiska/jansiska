@@ -58,7 +58,8 @@ app.use(session({
     }),
     secret: process.env.SESSION_SECRET,
     resave: false,
-    
+    name: process.env.SESSION_NAME,
+    saveUninitialized: false,
     cookie: { 
         maxAge: 86400000 ,
     }
@@ -67,10 +68,6 @@ app.use(session({
 
 
 //ADD ROUTE TO COMPARE PASSWORDS
-
-
-
-
 
 
 
@@ -107,6 +104,33 @@ app.post('/login', async (req, res) => {
    
 })
 
+app.post('/delete/:index', async(req,res) => {
+    const param = req.params.index
+    
+    let db = readData()
+    db = JSON.parse(db)
+
+    db.cz.splice(param,1)
+    db.en.splice(param,1)
+    db.es.splice(param,1)
+
+    db = JSON.stringify(db)
+
+    writeData(db)
+
+    
+
+    try{
+        const updatedDb = writeData(db)
+        return res.redirect('/admin')
+
+    }catch(e){
+        return res.redirect('/')
+    }
+
+
+})
+
 
 app.post('/update/:index', async (req,res) => {
     const body = req.body
@@ -115,7 +139,8 @@ app.post('/update/:index', async (req,res) => {
 
     let db =  readData()
     db = JSON.parse(db)
-   
+
+    
     
     const cz = db.cz[param]
     const es = db.es[param]

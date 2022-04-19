@@ -22,8 +22,11 @@ const renderContent = (data) => {
     data.cz.forEach((item, index) => {
         html += `
     
-    
-        <form style="padding: 10px;" id="update-tl-item-form-${index}"  method="POST" action="/update/${index}" >
+        <form id="tl-delete-form${index}" method="POST" action="/delete/${index}">
+            <input style="background:red;" type="submit" value="Delete" form="tl-delete-form${index}" id="tl-delete-btn${index}">
+        </form>
+        <form id="update-tl-item-form-${index}"  method="POST" action="/update/${index}" >
+            <h1>${index + 1}</h1>
 
             <label>Rok</label> 
             <input type="text" name="year" id="year${index}" value="${item.year}" required>
@@ -47,10 +50,8 @@ const renderContent = (data) => {
             <label>Popis-EN</label> 
             <textarea rows="10" cols="40" type="text" name="desc_en"  id="desc_en${index}" required>${data.en[index].desc}</textarea>
 
-            <input data-index="${index}" class="update-form-btn" form="update-tl-item-form-${index}" type="submit" id="submit-tl-item-btn${index}">
-
-
-            
+            <input style="background:blue;" data-index="${index}" class="update-form-btn" form="update-tl-item-form-${index}" type="submit" id="submit-tl-item-btn${index}">
+    
         </form>
         <hr>
             
@@ -174,9 +175,7 @@ addEventListener('DOMContentLoaded', ()=> {
         .then(data => {
             renderContent(data)
         }).catch(e => alert(e))
-    }
-
-    
+    }   
 
 })
 

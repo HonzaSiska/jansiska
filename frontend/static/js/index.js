@@ -6,6 +6,7 @@ import DashboardEspanol from "./views/DashboardEspanol.js";
 import ResumeEspanol from "./views/ResumeEspanol.js";
 
 import  "./components/switch.js"
+import  "./components/popup.js"
 import  "./components/navEnglish.js"
 import  "./components/navEspanol.js"
 import  "./components/navCzech.js"
