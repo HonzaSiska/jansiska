@@ -451,11 +451,78 @@ function animate(){
 animate()
 
 
+
+// POPUP FUNCTIONALITY
 addEventListener('mousemove', (event) => {
     mouse.x = (event.clientX / innerWidth) * 2 - 1
     mouse.y = (event.clientY / innerHeight) * 2 + 1
     // console.log(mouse)
 })
+
+const options = document.querySelectorAll(`[data-options]`)
+
+const popUp = document.querySelector('pop-up')
+
+options.forEach(option => {
+    option.addEventListener('mouseover', (e) => {
+        console.log(e)
+        openPopUp(e)
+    })
+    option.addEventListener('mouseout', (e) => {
+        popUp.style.display='none'
+    })
+})
+
+const openPopUp = (e) => {
+    const popUp = document.querySelector('pop-up')
+    const textContent = e.target.getAttribute('data-options')
+    const splitContext = textContent.split(",")
+
+    const target  = e.target.getBoundingClientRect()
+    console.log(target)
+
+   
+
+    if(target.x < window.innerWidth/2){
+        popUp.style.display='block'
+        popUp.style.left= `${target.x}px`
+        popUp.style.top= `${target.y + 60}px`
+    }else{
+        popUp.style.display='block'
+        // popUp.style.right= `${target.right}px`
+        popUp.style.left= `${target.left - (popUp.offsetWidth - target.width)   }px`
+        popUp.style.top= `${target.y + 60}px`
+    }
+
+
+    
+    
+    // popUp.style.display='block'
+
+    const cz = splitContext[0]
+    const es = splitContext[1]
+    const en = splitContext[2]
+
+
+    const detectedLanguage = localStorage.getItem('lang')
+
+    switch (detectedLanguage) {
+        case '':
+            popUp.setAttribute('text',cz)
+            break;
+    
+        case 'es':
+            popUp.setAttribute('text',es)
+            break;
+        
+        case 'en':
+        popUp.setAttribute('text',en)
+        break;
+    }
+
+
+}
+console.log(options)
 
 
 

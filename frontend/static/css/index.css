@@ -36,6 +36,11 @@ body {
     
 }
 
+pop-up{
+    display: none;
+    position: absolute;
+    
+}
 #canvas-wrapper{
    
     border-top: 1px solid var(--semi-green);
@@ -478,6 +483,7 @@ a {
 }
 .date-circle{
     margin-top: 16px;
+    font-size: 0.7em;
     
     /* display: flex;
     align-items: center;
@@ -496,7 +502,7 @@ a {
     
 }
 .carret-path{
-    
+    cursor: nw-resize;
     fill: var(--orange);
 }
 .tl-desc-section{
@@ -536,6 +542,7 @@ a {
     left: 24px;
 }
 .close-desc-section-btn{
+    cursor: ns-resize;
     display: flex;
     align-items: center;
     justify-content: center;  
@@ -596,7 +603,7 @@ a {
     }
     
     50%{
-        opacity: 0.6;
+        opacity: 0.3;
        
     }
     100%{

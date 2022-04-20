@@ -9,7 +9,7 @@
 </head>
 <body >
     <header>
-     
+      
         <!-- <nav-czech></nav-czech> -->
         <div class="header__wrapper">
           <div id="hamburger-menu">
@@ -37,18 +37,19 @@
           
           <div id="switches">
             
-            <img id="cog" src="/img/cog.svg" alt="cog">
+            <img  data-options="Přihlásit se,Login,Login" id="cog" src="/img/cog.svg" alt="cog">
             
-            <mode-switch></mode-switch>
-            <div id="language-selector-wrapper">
-                <div id ="language-selector">
-                    <div data-active="true" data-url="/" class ="language-selector-anchor">
+            <mode-switch  data-options="Změnit barvy,Modo de color,Color Mode"></mode-switch>
+
+            <div  id="language-selector-wrapper" >
+                <div  id ="language-selector">
+                    <div data-options="Jazyk,Idioma,Language" data-active="true" data-url="/" class ="language-selector-anchor">
                         CZ
                     </div>
-                    <div class ="language-selector-anchor" data-url="/es">
+                    <div data-options="Jazyk,Idioma,Language" class ="language-selector-anchor" data-url="/es">
                       ES
                     </div>
-                    <div class ="language-selector-anchor" data-url="/en">
+                    <div data-options="Jazyk,Idioma,Language" class="language-selector-anchor" data-url="/en">
                       EN
                     </div>
                 </div>

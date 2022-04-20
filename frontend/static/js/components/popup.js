@@ -16,10 +16,12 @@ template.innerHTML=`
         box-shadow: 0px 10px 35px -3px rgb(0, 246, 255, 0.8);
     }
 </style>
+<div>
 <div id='pop-up'>
     <div id="pop-up-content">
         TOHLE JE POPUP
     </div>
+</div>
 </div>
 
 `
