@@ -1,0 +1,60 @@
+{
+    "cz": {
+        "tlTitle": "ZKUSENOST",
+        "eduTitle": "VZDELANI",
+        "skillsTitle": "DOVEDNOSTI",
+        "intro": "CZECH INTRO",
+        "skills": [
+            "umi varit", "umi chlastat"
+        ],
+        "education": [
+            {
+                "title": "PROGRAMATOR",
+                "desc":"silherovice"
+            }, 
+            {
+                "title": "PRIMAKURZY",
+                "desc":"skola programovani"
+            }
+        ]
+    },
+    "es": {
+        "tlTitle": "EXPERIENCIA",
+        "eduTitle": "EDUCACION",
+        "intro": "Eso es descripcion espanol. Eso es descripcion espanol. Eso es descripcion espanol.Eso es descripcion espanol.Eso es descripcion espanol.Eso es descripcion espanol.",
+        "skillsTitle": "HABILIDADES",
+        "skills": [
+            "puede cocinar", "puede chupar"
+        ],
+        "education": [
+            {
+                "title": "ESCHUELA COCINERO",
+                "desc":"silherovice"
+            }, 
+            {
+                "title": "PRIMAKURZY",
+                "desc":"desarrollo web"
+            }
+        ]
+    },
+    "en": {
+        "tlTitle": "EXPERIENCE",
+        "eduTitle": "EDUCATION",
+        "intro": "ENGLISH INTRO",
+        "skillsTitle": "SKILLS",
+        "skills": [
+            "can cook", "can booze"
+        ],
+        "education": [
+            {
+                "title": "COULINARY SCHOOL",
+                "desc":"silherovice"
+            }, 
+            {
+                "title": "PRIMAKURZY",
+                "desc":"web development"
+            }
+        
+        ]
+    }
+}

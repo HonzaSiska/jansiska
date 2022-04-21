@@ -80,8 +80,8 @@ const writeData = (data) => {
 
 //FUNCTION TO READ DATA FROM DB
 
-const readData =  () => {
-    const json =  fs.readFileSync('./frontend/static/data/data.json', 'utf8')
+const readData =  (url) => {
+    const json =  fs.readFileSync(url, 'utf8')
     return json
 }
 
@@ -107,7 +107,7 @@ app.post('/login', async (req, res) => {
 app.post('/delete/:index', async(req,res) => {
     const param = req.params.index
     
-    let db = readData()
+    let db = readData('./frontend/static/data/data.json')
     db = JSON.parse(db)
 
     db.cz.splice(param,1)
@@ -137,7 +137,7 @@ app.post('/update/:index', async (req,res) => {
     const param = req.params.index
 
 
-    let db =  readData()
+    let db =  readData('./frontend/static/data/data.json')
     db = JSON.parse(db)
 
     
@@ -165,7 +165,7 @@ app.post('/update/:index', async (req,res) => {
     
     try{
         const updatedDb = writeData(db)
-        const result = readData()
+        const result = readData('./frontend/static/data/data.json')
         return res.send(result)
 
     }catch(e){
@@ -177,7 +177,7 @@ app.post('/update/:index', async (req,res) => {
 
 app.get('/data', (req, res) => {
     try{
-        const data = readData()
+        const data = readData('./frontend/static/data/data.json')
         console.log('received', typeof data)
         return res.send(data)
 
@@ -273,7 +273,34 @@ app.get('/admin', async (req, res) => {
 })
 
 
+app.get('/print', (req,res) => {
+    return res.sendFile(path.resolve(__dirname,'frontend','print.html'))
+})
 
+app.get('/printdata', async (req, res) => {
+    console.log('works')
+    try{
+        //GET JSON DATA
+        let data = readData('./frontend/static/data/data.json')
+        let description = readData('./frontend/static/data/description.json')
+
+        //CONVERT DATA TO OBJECT
+        data = JSON.parse(data)
+        description = JSON.parse(description)
+
+        //CONSOLIDATE DATA
+        let result = { data, description }
+
+        //CONVERT CONSOLIDATED DATA TO JSON
+        result = JSON.stringify(result)
+        
+        //SEND
+        return res.send( result)
+
+    }catch(e){
+        return res.json(e)
+    }
+})
 
 
 app.get('/*', (req,res) => {
