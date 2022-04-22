@@ -325,7 +325,7 @@ a {
     left: -100px;
     background: rgb(16, 66, 2, 0.2);
     box-shadow: none;
-    border-right:1px solid rgb(187, 249, 174);
+    border-right:1px solid rgb(51, 137, 146);
     transform: rotate(-90deg);
     
 
@@ -343,7 +343,7 @@ a {
     0%{
         left: -100px;
         width: 0px;
-        background: rgb(16, 66, 2, 0.2);
+        background: rgb(14, 17, 23, 0.2);
         transform: rotate(-90deg);
         height: 0vh;
         
@@ -351,8 +351,8 @@ a {
     100%{
         left: 0;
         width: 300px;
-        background: rgb(16, 66, 2, 1);
-        box-shadow: 7px 0px 15px -3px #92e571;
+        background: rgb(14, 17, 23);
+        box-shadow: 7px 0px 15px -3px #719be5;
         transform: rotate(0deg);
         height: 100vh;
         
@@ -363,7 +363,7 @@ a {
     0%{
         left: 0;
         width: 300px;
-        background: rgb(16, 66, 2, 1);
+        background: rgb(14, 17, 23, 1);
         box-shadow: 7px 0px 15px -3px #92e571;
         transform: rotate(0deg);
         height: 100vh;
@@ -372,7 +372,7 @@ a {
         
         left: -100px;
         width: 0px;
-        background: rgb(16, 66, 2, 0.2);
+        background: rgb(14, 17, 23, 0.2);
         transform: rotate(-90deg);
         height: 0vh;
         
@@ -385,7 +385,7 @@ a {
    width: 100%;
 }
 #login-form-wrapper  h2{
-    color: var(--light-green);
+    color: rgb(51, 137, 146);
     text-align: center;
     margin-bottom: 20px;
 }
@@ -402,17 +402,17 @@ a {
 
 #login-form-wrapper input[type="text"]{
     color: white;
-    border: 1px solid var(--light-green);
+    border: 1px solid   rgb(51, 137, 146);
 }
 #login-form-wrapper input[type="password"]{
     color: white;
-    border: 1px solid var(--light-green);
+    border: 1px solid rgb(51, 137, 146);
 }
 #login-form-wrapper input::placeholder{
     font-family: 'Rajdhani', sans-serif;
     font-style: italic;
     font-weight: bold;
-    color:var(--light-green);
+    color:varrgb(51, 137, 146);
 }
 
 

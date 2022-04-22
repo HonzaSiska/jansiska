@@ -4,15 +4,14 @@ template.innerHTML=`
 <style>
     #pop-up{
         border: 3px solid rgb(8, 83, 108); 
-        border-radius: 5px;
+        border-radius: 25px;
         background: rgb(0, 0, 0);
         color: rgb(0, 246, 255);
         font-weight: bold;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100px;
-        width: 200px;
+        padding: 20px;
         box-shadow: 0px 10px 35px -3px rgb(0, 246, 255, 0.8);
     }
 </style>
