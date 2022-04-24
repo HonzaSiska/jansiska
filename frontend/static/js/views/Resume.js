@@ -22,14 +22,14 @@ export default class extends AbstractView {
    
             html += `
 
-            <div class="tl-date-section">
-                <div class="tl-date-container">
+            <div class="tl-date-section ">
+                <div class="tl-date-container" >
                     <div>
                         <div class="date-circle">
                             ${year}
                         </div>
-                        <div>
-                            <svg data-id="${index}" class="carret-bottom" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 8 8">
+                        <div class="carret">
+                            <svg  data-id="${index}" class="carret-bottom" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 8 8">
                             <path class="carret-path" d="M0 0l4 4 4-4h-8z" transform="translate(0 2)" />
                             </svg>
                         </div>
@@ -43,10 +43,10 @@ export default class extends AbstractView {
                         <path d="M4 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm-1.5 1.78l1.5 1.5 1.5-1.5.72.72-1.5 1.5 1.5 1.5-.72.72-1.5-1.5-1.5 1.5-.72-.72 1.5-1.5-1.5-1.5.72-.72z" />
                         </svg>
                 </div>
-                <div class="triangle"></div>
+                <div  class="triangle"></div>
                 </div>
                 <div class="tl-desc-section-right">
-                    <div class="triangle-wrapper">
+                    <div >
                         <div class="">
                         </div>
                     </div>

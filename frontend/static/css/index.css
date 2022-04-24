@@ -228,7 +228,7 @@ a {
 #printer{
     width: 34px;
     margin-right: 15px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     box-shadow: none;
     animation: pop 2s linear infinite
 }
@@ -239,12 +239,12 @@ a {
         box-shadow: none;
     }
     50%{
-        margin-top: 6px;
+        /* margin-top: 6px; */
         box-shadow: 5px 5px 45px 0px rgb(0, 246, 255);
     }
     100%{
         box-shadow: none;
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
 }
 

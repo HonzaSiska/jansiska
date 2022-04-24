@@ -544,10 +544,30 @@ if(touch !== true){
     
     
     }
+    // if(location.pathname === '/resume'){
+    //     const popUp = document.querySelector('pop-up')
+    //     setTimeout(() => {
+            
+    //         const triangles = document.querySelectorAll('.carret')
+    //         triangles.forEach(triangle => {
+    //             triangle.setAttribute('data-options', 'Otevřít,Abrir,Open')
+    //             popUp.setAttribute('text',cz)
+    //         })
 
+    //         triangles.forEach(triangle => triangle.addEventListener('mouseover', (e) => {
+               
+    //             openPopUp(e)
+    //         }))
 
+    //         triangles.forEach(triangle => triangle.addEventListener('mouseout', () => {
+    //             popUp.style.display='none'
+    //         }))
+    //     }, 1500);
+    // }
 
 }
+
+
 
 
 
