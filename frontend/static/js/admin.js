@@ -22,9 +22,7 @@ const renderContent = (data) => {
     data.cz.forEach((item, index) => {
         html += `
     
-        <form id="tl-delete-form${index}" method="POST" action="/delete/${index}">
-            <input style="background:red;" type="submit" value="Delete" form="tl-delete-form${index}" id="tl-delete-btn${index}">
-        </form>
+        
         <form id="update-tl-item-form-${index}"  method="POST" action="/update/${index}" >
             <h1>${index + 1}</h1>
 
@@ -52,6 +50,9 @@ const renderContent = (data) => {
 
             <input style="background:blue;" data-index="${index}" class="update-form-btn" form="update-tl-item-form-${index}" type="submit" id="submit-tl-item-btn${index}">
     
+        </form>
+        <form id="tl-delete-form${index}" method="POST" action="/delete/${index}">
+            <input style="background:red;padding: 10px; font-weight: bold;" type="submit" value="Delete-${index + 1}" form="tl-delete-form${index}" id="tl-delete-btn${index}">
         </form>
         <hr>
             

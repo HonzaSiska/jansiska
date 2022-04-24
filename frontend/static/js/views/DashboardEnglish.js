@@ -6,8 +6,15 @@ export default class extends AbstractView {
         super(params)
         this.setTitle("Home")
     }
+
+    async getData(){
+        const data = await fetch('/introdata')
+        const json = await data.json()
+     
+        return json
+    }
     async getHtml(){
-        // console.log(this.params.id)
+        const data = await this.getData()
         return `
      
         <nav class="nav">
@@ -16,6 +23,10 @@ export default class extends AbstractView {
         </nav>
       
         <h1 class="title-stroke">Dashboard English</h1>
+
+        <div class="description">
+            <p>${data.en}</p>     
+        </div>
     `
     }
     

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="cz">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/index.css">
+        <title>Single Page</title>
+    </head>
+    <body >
+        <div id="admin-container">
+            <nav id="admin-nav">
+                <a href="/admin">Admin</a>
+                <a href="/intro">Intro</a>
+                <a href="/skills">Skills</a>
+            </nav>
+            <h2>INTRO</h2>
+            <p id="error"></p>
+            <form style="background-color: lightgrey;padding: 10px;" id="intro-item-form" name="intro-item-form" method="POST"  submit="return false;">
+                <label>Intro CZ</label> 
+                <br>
+                <textarea  cols="100" rows="35" name="introcz" id="intro-cz"  required></textarea>
+                <hr>
+
+                <label>Intro ES</label> 
+                <br>
+                <textarea cols="100" rows="35"  name="introes" id="intro-es" value="" required></textarea>
+                <hr>
+
+                <label>Intro EN</label> 
+                <br>
+                <textarea  cols="100" rows="35" name="introen" id="intro-en" value="" required></textarea>
+                <hr>
+            
+                <input style="padding: 10px; background: blue;" form="intro-item-form" type="submit" id="update-intro-btn">
+            </form>
+            
+        </div>
+        <script type="module" src="/static/js/intro.js"></script>
+    </body>
+</html>

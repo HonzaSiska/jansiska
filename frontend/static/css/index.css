@@ -225,6 +225,30 @@ a {
     transform: rotate(0deg);
     animation: rotation 6s linear infinite;
 }
+#printer{
+    width: 34px;
+    margin-right: 15px;
+    margin-top: 10px;
+    box-shadow: none;
+    animation: pop 2s linear infinite
+}
+
+@keyframes pop{
+
+    0%{
+        box-shadow: none;
+    }
+    50%{
+        margin-top: 6px;
+        box-shadow: 5px 5px 45px 0px rgb(0, 246, 255);
+    }
+    100%{
+        box-shadow: none;
+        margin-top: 10px;
+    }
+}
+
+
 #cog:hover{
     cursor: pointer;
 }
@@ -656,5 +680,17 @@ a {
     .description{
         padding: 0 150px;
     }
+
+}
+
+/* ADMIN */
+#admin-nav{
+    margin: 20px;
+}
+#admin-nav a{
+    padding: 10px;
+    background: black;
+    color:lightgray;
+    text-decoration: none;
 
 }

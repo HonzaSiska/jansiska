@@ -2,6 +2,8 @@ const express = require('express')
 const session = require('express-session')
 const path = require('path')
 const fs = require('fs')
+const { IncrementWrapStencilOp } = require('three')
+const { send } = require('process')
 const app = express()
 var FileStore = require('session-file-store')(session);
 const MemoryStore = require('memorystore')(session)
@@ -88,8 +90,6 @@ const readData =  (url) => {
 
 app.post('/login', async (req, res) => {
     const body = req.body 
-    console.log(body)
-
     let error = {}
     
     if(process.env.USER!== body.username && process.env.PASS !== body.password){
@@ -97,7 +97,7 @@ app.post('/login', async (req, res) => {
         return res.redirect('/')
     }else{
         req.session.username = body.username
-        console.log('session set', req.session.username)
+        
         return res.redirect('/admin')
         //return res.send({})
     }
@@ -178,7 +178,6 @@ app.post('/update/:index', async (req,res) => {
 app.get('/data', (req, res) => {
     try{
         const data = readData('./frontend/static/data/data.json')
-        console.log('received', typeof data)
         return res.send(data)
 
     }catch(e){
@@ -208,7 +207,7 @@ app.post('/add', async (req, res) => {
     }else{
         parsedData = { cz:[], es: [], en: [] }
     }
-    console.log('dfata from DB', parsedData)
+    
     
 
     //UPDATE OBJECT RETRIEVED FROM JSON DB
@@ -217,21 +216,19 @@ app.post('/add', async (req, res) => {
     czech.title = title_cz
     czech.desc = desc_cz
 
-    console.log('czech', czech)
 
     const esp = {}
     esp.year = year
     esp.title = title_es
     esp.desc = desc_es
 
-    console.log('esp', esp)
+   
 
     const eng = {}
     eng.year = year
     eng.title = title_en
     eng.desc = desc_en
 
-    console.log('eng', eng)
 
     parsedData.cz.push(czech)
     parsedData.es.push(esp)
@@ -259,7 +256,7 @@ app.post('/add', async (req, res) => {
     
 })
 app.get('/admin', async (req, res) => {
-    console.log('session username',req.session.username)
+    
     if(req.session.username){
         return res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
     }else{
@@ -271,7 +268,58 @@ app.get('/admin', async (req, res) => {
     // res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
     
 })
+app.get('/intro', async (req, res) => {
+    if(req.session.username){
+        return res.sendFile(path.resolve(__dirname,'frontend','intro.html'))
+    }else{
+        return res.redirect('/')
+    }
+    
+    
+    
+})
 
+app.get('/introdata', async (req, res) => {
+   
+    try {
+        let data = readData('./frontend/static/data/main.json')
+       
+        return res.send(data)
+    } catch (error) {
+        return res.json({error: 'STALA SE CHYBA !!'})
+    }
+   
+
+})
+
+app.post('/introupdate', async (req, res) => {
+    
+    if(req.session.username){
+        const body = req.body
+        console.log('introbody', body)
+
+       
+        let data = {...body}
+        data = JSON.stringify(data)
+       
+        
+        try {
+            fs.writeFileSync("./frontend/static/data/main.json", data)
+            
+            let updatedData = readData("./frontend/static/data/main.json")
+            console.log('session on intro update',req.session.username)
+            return res.json(updatedData)
+        } catch (error) {
+            return send({error: ' Stata se chyba !!'})
+        }
+        
+        
+        
+
+    }else{
+        return res.redirect('/')
+    }
+})
 
 app.get('/print', (req,res) => {
     return res.sendFile(path.resolve(__dirname,'frontend','print.html'))
