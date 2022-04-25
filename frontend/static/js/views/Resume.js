@@ -11,10 +11,14 @@ export default class extends AbstractView {
         const  data = await fetch('/data')
      
         const parsedData = await data.json()
+        console.log(parsedData)
+        let html = `
+        <div id="curriculum-intro" >
+            <p>${parsedData.desc.cz.intro}</p>
+        </div>
+        `
 
-        let html = ''
-
-        const cz = parsedData.cz
+        const cz = parsedData.data.cz
 
         cz.forEach((item, index) => {
             

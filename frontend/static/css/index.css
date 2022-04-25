@@ -584,6 +584,29 @@ a {
     
     
 }
+#curriculum-intro{
+    border: 1px solid var(--logo-green); 
+    margin: 50px auto 70px;
+    width: 80%;
+    color: var(--light-blue);
+    background: var(--light-back);
+    padding: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+
+}
+
+.morph #curriculum-intro{
+    color: var(--light-blue);
+    background: var(--morph-back);
+    border: 1px solid var(--light-blue);
+}
+.dark #curriculum-intro{
+    color: var(--light-back);
+    background:black;
+    border: 1px solid var(--orange)
+}
 .morph .desc-wrapper{
     background: var(--morph-back);
     color: var(--light-blue);

@@ -177,8 +177,18 @@ app.post('/update/:index', async (req,res) => {
 
 app.get('/data', (req, res) => {
     try{
-        const data = readData('./frontend/static/data/data.json')
-        return res.send(data)
+        let data = readData('./frontend/static/data/data.json')
+        let desc = readData('./frontend/static/data/description.json')
+
+        data = JSON.parse(data)
+        desc = JSON.parse(desc)
+        
+        let result = {}
+        result.data = data
+        result.desc = desc
+        result =JSON.stringify(result)
+        console.log('test desc', result)
+        return res.send(result)
 
     }catch(e){
         return res.json(e)
@@ -247,14 +257,62 @@ app.post('/add', async (req, res) => {
         return res.json(e)
     }
 
-     
+})     
 
     
 
-    //UPDATE THE JSON FILE
 
-    
+app.get('/description', async(req, res) => {
+    if(req.session.username){
+        return res.sendFile(path.resolve(__dirname,'frontend','description.html'))
+    }else{
+        return res.redirect('/')
+    }
 })
+
+app.get('/descriptdata', async(req, res) => {
+    if(req.session.username){
+        try {
+            const data = readData('./frontend/static/data/description.json')
+            return res.send(data)
+        } catch (error) {
+            return res.json({errer: 'Couldnt retrieve the data'})
+        }
+    }else{
+        return res.redirect('/')
+    }
+})
+app.post('/descriptupdate', async(req, res) => {
+    if(req.session.username){
+        let data = req.body
+
+        const json = readData('./frontend/static/data/description.json')
+
+        const parsedJson = JSON.parse(json)
+
+
+        parsedJson.cz.intro = data.cz
+        parsedJson.es.intro = data.es
+        parsedJson.en.intro = data.en
+
+        const updatedData = JSON.stringify(parsedJson) 
+        
+        try {
+            fs.writeFileSync("./frontend/static/data/description.json", updatedData) 
+
+            const updatedFile = readData("./frontend/static/data/description.json")
+            
+            return res.send(updatedFile)
+        } catch (error) {
+            return res.json({error:'failed to update !!'})
+        }
+        
+    }else{
+        return res.redirect('/')
+    }
+})
+    
+
 app.get('/admin', async (req, res) => {
     
     if(req.session.username){
@@ -263,9 +321,6 @@ app.get('/admin', async (req, res) => {
         return res.redirect('/')
     }
     
-    
-    // console.log(req.session)
-    // res.sendFile(path.resolve(__dirname,'frontend','admin.html'))
     
 })
 app.get('/intro', async (req, res) => {
@@ -296,9 +351,7 @@ app.post('/introupdate', async (req, res) => {
     
     if(req.session.username){
         const body = req.body
-        console.log('introbody', body)
-
-       
+        console.log('introbody', body)     
         let data = {...body}
         data = JSON.stringify(data)
        
@@ -307,7 +360,7 @@ app.post('/introupdate', async (req, res) => {
             fs.writeFileSync("./frontend/static/data/main.json", data)
             
             let updatedData = readData("./frontend/static/data/main.json")
-            console.log('session on intro update',req.session.username)
+            
             return res.json(updatedData)
         } catch (error) {
             return send({error: ' Stata se chyba !!'})

@@ -195,7 +195,7 @@ app.addEventListener('mousemove', () => {
             descSection.style.overflow="visible"
             carret.style.visibility="hidden"
             const descSectionWrapper = document.querySelector(`[data-descwrapper="${id}"]`)
-            console.log('desc', descSectionWrapper)
+            
             descSectionWrapper.style.border='1px solid var(--light-blue)'
             const pointer = document.querySelector(`[data-pointer="${id}"]`)
             
@@ -228,7 +228,6 @@ app.addEventListener('mousemove', () => {
 
 const loginWrapper = document.querySelector('#login-form-wrapper')
 const cog = document.querySelector('#cog')
-console.log("cog", cog)
 const loginBtn = document.querySelector('#login-btn')
 const cancelBtn = document.querySelector('#cancel-btn')
 
@@ -248,7 +247,6 @@ cog.addEventListener('click', () => {
     userName.value =''
     password.value=''
     errorBox.innerHTML=''
-    console.log(cog)
 })
 
 //LOGIN
@@ -256,7 +254,6 @@ cog.addEventListener('click', () => {
 const loginForm = document.querySelector('#login-form')
 loginBtn.addEventListener('click', async (e) => {
     e.preventDefault()
-    console.log(e)
     let errors = []
     const userName = document.querySelector('#username')
     const password = document.querySelector('#password')
@@ -544,27 +541,6 @@ if(touch !== true){
     
     
     }
-    // if(location.pathname === '/resume'){
-    //     const popUp = document.querySelector('pop-up')
-    //     setTimeout(() => {
-            
-    //         const triangles = document.querySelectorAll('.carret')
-    //         triangles.forEach(triangle => {
-    //             triangle.setAttribute('data-options', 'Otevřít,Abrir,Open')
-    //             popUp.setAttribute('text',cz)
-    //         })
-
-    //         triangles.forEach(triangle => triangle.addEventListener('mouseover', (e) => {
-               
-    //             openPopUp(e)
-    //         }))
-
-    //         triangles.forEach(triangle => triangle.addEventListener('mouseout', () => {
-    //             popUp.style.display='none'
-    //         }))
-    //     }, 1500);
-    // }
-
 }
 
 

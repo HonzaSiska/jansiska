@@ -3,58 +3,60 @@
         "tlTitle": "ZKUSENOST",
         "eduTitle": "VZDELANI",
         "skillsTitle": "DOVEDNOSTI",
-        "intro": "CZECH INTRO",
+        "intro": "Trojjazyčný a cílevědomý člověk s obrovskou pracovní morálkou a silnými komunikačními schopnostmi. Rozvinuté silné stránky během rozmanité kariéry v různých zemích a oblastech kariéry, cenné dovednosti v oblasti prodeje a řízení malých podniků jako vlastník/provozovatel vinařství s tropickým ovocem. Zběhlý v používání počítačů.",
         "skills": [
-            "umi varit", "umi chlastat"
+            "umi varit",
+            "umi chlastat"
         ],
         "education": [
             {
                 "title": "PROGRAMATOR",
-                "desc":"silherovice"
-            }, 
+                "desc": "silherovice"
+            },
             {
                 "title": "PRIMAKURZY",
-                "desc":"skola programovani"
+                "desc": "skola programovani"
             }
         ]
     },
     "es": {
         "tlTitle": "EXPERIENCIA",
         "eduTitle": "EDUCACION",
-        "intro": "Eso es descripcion espanol. Eso es descripcion espanol. Eso es descripcion espanol.Eso es descripcion espanol.Eso es descripcion espanol.Eso es descripcion espanol.",
+        "intro": "Persona trilingüe y orientada a objetivos con una gran ética de trabajo y fuertes habilidades de comunicación. Desarrollé fortalezas durante una carrera diversa en varios países y campos profesionales, valiosas habilidades de gestión de ventas y pequeñas empresas como propietario/operador de una bodega de frutas tropicales. Competente en el uso de computadoras.",
         "skillsTitle": "HABILIDADES",
         "skills": [
-            "puede cocinar", "puede chupar"
+            "puede cocinar",
+            "puede chupar"
         ],
         "education": [
             {
                 "title": "ESCHUELA COCINERO",
-                "desc":"silherovice"
-            }, 
+                "desc": "silherovice"
+            },
             {
                 "title": "PRIMAKURZY",
-                "desc":"desarrollo web"
+                "desc": "desarrollo web"
             }
         ]
     },
     "en": {
         "tlTitle": "EXPERIENCE",
         "eduTitle": "EDUCATION",
-        "intro": "ENGLISH INTRO",
+        "intro": "Trilingual and goal-oriented person with tremendous work ethic and strong communication skills. Developed strengths during a diverse career in various countries and career fields, valuable sales and small business management skills as a tropical fruit winery owner/operator. Proficient at using computers.",
         "skillsTitle": "SKILLS",
         "skills": [
-            "can cook", "can booze"
+            "can cook",
+            "can booze"
         ],
         "education": [
             {
                 "title": "COULINARY SCHOOL",
-                "desc":"silherovice"
-            }, 
+                "desc": "silherovice"
+            },
             {
                 "title": "PRIMAKURZY",
-                "desc":"web development"
+                "desc": "web development"
             }
-        
         ]
     }
 }
