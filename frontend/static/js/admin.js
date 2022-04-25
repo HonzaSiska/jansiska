@@ -11,7 +11,7 @@ const getContent = async () => {
     const parsedData = await fetchedData.json()
     console.log(parsedData)
 
-    return parsedData
+    return parsedData.data
 }
 
 const renderContent = (data) => {

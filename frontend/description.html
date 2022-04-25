@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cz">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/index.css">
+        <title>Single Page</title>
+    </head>
+    <body >
+    <div id="admin-container">
+
+        <nav id="admin-nav">
+            <a href="/admin">Admin</a>
+            <a href="/intro">Intro</a>
+            <a href="/skills">Skills</a>
+            <a href="/description">Description</a>
+        </nav>
+        <h2>Description</h2>
+        <p class="error"></p>
+        <form style="background-color: lightgrey;padding: 10px;" id="update-description-form" name="update-description-form" method="POST" action="/descriptupdate" submit="return false;">
+            <label>Popis-CZ</label> 
+            <textarea rows="10" cols="40" type="text" name="desc_cz" id="desc_cz" required></textarea>
+            <hr>
+            <label>Popis-ES</label> 
+            <textarea rows="10" cols="40" type="text" name="desc_es" id="desc_es" required></textarea>
+            <hr>
+            <label>Popis-EN</label> 
+            <textarea rows="10" cols="40" type="text" name="desc_en"  id="desc_en" required></textarea>
+            <input form="update-description-form" type="submit" id="submit-description-btn">
+        </form>
+    
+    </div>
+    <script type="module" src="/static/js/description.js"></script>
+    </body>
+</html>

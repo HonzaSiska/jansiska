@@ -360,7 +360,7 @@ app.post('/introupdate', async (req, res) => {
             fs.writeFileSync("./frontend/static/data/main.json", data)
             
             let updatedData = readData("./frontend/static/data/main.json")
-            
+            console.log('session on intro update',req.session.username)
             return res.json(updatedData)
         } catch (error) {
             return send({error: ' Stata se chyba !!'})
