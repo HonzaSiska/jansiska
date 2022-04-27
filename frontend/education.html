@@ -17,31 +17,35 @@
             <a href="/description">Description</a>
             <a href="/education">Education</a>
         </nav>
-        <h2>Admin - Timeline</h2>
+        <h2>Education</h2>
         <p class="error"></p>
-        <form style="background-color: lightgrey;padding: 10px;" id="add-tl-item-form" name="add-tl-item-form" method="POST" action="/add" submit="return false;">
-            <label>Rok</label> 
-            <input type="text" name="year" id="year" required>
-            <hr>
+        <form style="background-color: lightgrey;padding: 10px;" id="edu-form" name="edu-form" method="POST" action="/addeducation" submit="return false;">
             <label>Title-CZ</label> 
             <input type="text" name="title_cz" id="title_cz" required>
-            <label>Title-ES</label> 
-            <input type="text" name="title_es" id="title_es" required>
-            <label>Title-EN</label> 
-            <input type="text" name="title_en" id="title_en" required>
-            <hr>
+            <br>
             <label>Popis-CZ</label> 
             <textarea rows="10" cols="40" type="text" name="desc_cz" id="desc_cz" required></textarea>
+            <br>
+            <hr>
+
+            <label>Title-ES</label> 
+            <input type="text" name="title_es" id="title_es" required>
+            <br>
             <label>Popis-ES</label> 
             <textarea rows="10" cols="40" type="text" name="desc_es" id="desc_es" required></textarea>
+            <br>
+            <hr>
+            <label>Title-EN</label> 
+            <input type="text" name="title_en" id="title_en" required>
+            <br>
             <label>Popis-EN</label> 
             <textarea rows="10" cols="40" type="text" name="desc_en"  id="desc_en" required></textarea>
-            <input form="add-tl-item-form" type="submit" id="submit-tl-item-btn">
+            <input form="edu-form" type="submit" id="edu-form-btn">
         </form>
-        <div id="admin-content">
+        <div id="edu-content">
 
         </div>
     </div>
-    <script type="module" src="/static/js/admin.js"></script>
+    <script type="module" src="/static/js/education.js"></script>
     </body>
 </html>

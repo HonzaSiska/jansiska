@@ -259,7 +259,32 @@ app.post('/add', async (req, res) => {
 
 })     
 
+app.get('/education', async (req, res) => {
+    if(req.session.username){
+        return res.sendFile(path.resolve(__dirname,'frontend','education.html'))
+    }else{
+        return res.redirect('/')
+    }
+})  
+
+app.get('/edudata', async (req, res) => {
+    const json = readData('./frontend/static/data/description.json')
+    let data = JSON.parse(json)
+
+    let filteredData = {}
+
+    for(item in data){
+        filteredData[item] = data[item]
+    }
+    return res.send(filteredData)
+
     
+})
+
+app.post('/addeducation', async (req, res) => {
+    const body = req.body
+    return res.send({body})
+})
 
 
 app.get('/description', async(req, res) => {

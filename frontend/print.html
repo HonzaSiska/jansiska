@@ -6,15 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/print.css">
     <title>Single Page</title>
+    <style>
+        @media print {
+           .noprint {
+              visibility: hidden;
+           }
+        }
+        </style>
 </head>
 <body >
     <main id="print-container">
         <div id="print-wrapper">
-            <header>
-                <h1>JAN ŠIŠKA</h1>
-                <h2>Krátká 4/305, Bruntál, 79201</h2>
-                <h2>tel.: +420 776 052 602</h2>
-                <h2><em>siskajan@hotmail.com</em></h2>
+            <header >
+                <div>
+                    <select class="noprint" style="padding: 5px" name="langs" id="lang-select">
+                        <option value="cz">CZ</option>
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                    </select>
+                </div>
+                <br class=".noprint">
+                <div>
+                    <h1>JAN ŠIŠKA</h1>
+                    <h2>Krátká 4/305, Bruntál, 79201</h2>
+                    <h2>tel.: +420 776 052 602</h2>
+                    <h2><em>siskajan@hotmail.com</em></h2>
+                </div>
+                
+                
                 <hr>
             </header>
             <section id="resume-content">intro</section>

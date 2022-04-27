@@ -5,21 +5,12 @@ const fetchData = async (url) => {
     return parsedData
 }
 
-const renderData = async(url) => {
+const renderData = async(url, language) => {
     const data = await fetchData(url)  
     const content = document.querySelector('#resume-content')
     // intro.innerHTML= data.data.cz[0].title
 
-    let language = localStorage.getItem('lang')
-
-    switch (language) {
-        case  '':
-            language =  'cz'
-            break;
     
-        default:
-            language = language;
-    }
     
     const tl = data.data[language]
     const introduction = data.description[language].intro
@@ -85,13 +76,61 @@ const renderData = async(url) => {
     html += '</ul>'
 
 
-        content.innerHTML = html
+    content.innerHTML = html
 
-    }
+}
+
+
+const langSelect = document.querySelector('#lang-select')
+
+langSelect.addEventListener('change', (e) => {
+    const target = e.target.value
+    localStorage.setItem('lang', target)
+    location.replace('/print')
+
+})
+
+
 
 
 if(window.location.pathname === '/print'){
+
+    let language = localStorage.getItem('lang')
+
+    let langMode
+    switch (language) {
+        case  null :
+            langMode = 'cz'
+            localStorage.setItem('lang','cz')
+            break;
+        case  '' :
+            langMode = 'cz'
+            localStorage.setItem('lang','cz')
+            break;
+        case  'cz' :
+            langMode = 'cz'
+            break;
+        case  'en' :
+            langMode = 'en'
+            break;    
+        case  'es' :
+            langMode = 'es'
+            break;
+        default:
+            langMode = 'cz';
+    }
+
+    //RESET DROPDOWN BASED ON SELECTED LANGUAGE AFTER REFRESH OR PAGE LOAD
+
+    const options = langSelect.querySelectorAll('option')
+
+    options.forEach(option => {
+        if (option.value  === langMode){
+            option.setAttribute('selected', true)
+        }
+    })
+   
     
-    renderData('/printdata')
+    renderData('/printdata',langMode)
 
 }
