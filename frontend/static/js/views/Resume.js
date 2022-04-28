@@ -11,14 +11,21 @@ export default class extends AbstractView {
         const  data = await fetch('/data')
      
         const parsedData = await data.json()
-        console.log(parsedData)
+        console.log('parsed',parsedData)
         let html = `
+        <nav class="nav">
+            <a href="/" class="nav__link" data-link>Domů</a>
+            <a href="/resume" class="nav__link" data-link>Zivotopis</a> 
+        </nav>
+        <h1 class="title-stroke">Zivotopis !!</h1>
         <div id="curriculum-intro" >
             <p>${parsedData.desc.cz.intro}</p>
         </div>
+        <section id="tl-wrapper">
         `
 
         const cz = parsedData.data.cz
+        const edu = parsedData.desc.cz
 
         cz.forEach((item, index) => {
             
@@ -62,9 +69,56 @@ export default class extends AbstractView {
                     </div>
                 </div>
             </div>
+           
             `
+            
         })
 
+        //EDUCATION
+
+        const educations = parsedData.desc.cz.education
+        const skills = parsedData.desc.cz.skills
+        const skillsTitle = parsedData.desc.cz.skillsTitle
+
+        
+
+        html += `
+            <div class="tl-date-section">
+                <div class="tl-date-container">
+                    <div class="date-circle">
+                        DNES
+                    </div>
+                
+                </div>
+            </div> 
+            <div class="edu-section">
+                <div class="edu-title"><h2>${edu.eduTitle}</h2></div>
+            </div>
+        `
+        educations.forEach(edu => {
+            html+= `<div class="edu-item">
+                <h3>${edu.title}</h3>
+                <p>${edu.desc}</p>
+            </div>`
+        })
+
+        html+=`
+        
+            <div class="edu-section">
+                <div class="edu-title"><h2>${skillsTitle}</h2></div>
+            </div>
+
+        `
+        skills.forEach(skill => {
+            html+= `<ul class="edu-item">
+                
+                <p>${skill}</p>
+            </ul>`
+        })
+
+        html+=`</section>`
+        
+        
         return html
 
     }
@@ -72,24 +126,6 @@ export default class extends AbstractView {
 
         let data = await this.getData()
         
-        return `
-            <nav class="nav">
-                <a href="/" class="nav__link" data-link>Domů</a>
-                <a href="/resume" class="nav__link" data-link>Zivotopis</a> 
-            </nav>
-            <h1 class="title-stroke">Zivotopis !!</h1>
-            <section id="tl-wrapper">
-                ${data}
-                <div class="tl-date-section">
-                    <div class="tl-date-container">
-                        <div class="date-circle">
-                            DNES
-                        </div>
-                       
-                    </div>
-                </div> 
-            </section>
-            
-        `
+        return data
     }
 }

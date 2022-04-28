@@ -187,7 +187,6 @@ app.get('/data', (req, res) => {
         result.data = data
         result.desc = desc
         result =JSON.stringify(result)
-        console.log('test desc', result)
         return res.send(result)
 
     }catch(e){
@@ -196,7 +195,6 @@ app.get('/data', (req, res) => {
 })
 
 app.post('/add', async (req, res) => {
-    console.log('body', req.body)
     const {
         year, 
         title_cz, 
@@ -283,7 +281,74 @@ app.get('/edudata', async (req, res) => {
 
 app.post('/addeducation', async (req, res) => {
     const body = req.body
-    return res.send({body})
+
+    if(req.session.username){
+        const json = readData('./frontend/static/data/description.json')
+        const parsedJson = JSON.parse(json)
+
+        const czech = { title: body.title_cz, desc: body.desc_cz}
+        const esp = { title: body.title_es, desc: body.desc_es}
+        const eng = { title: body.title_en, desc: body.desc_en}
+
+        parsedJson.cz.education.push(czech)
+        parsedJson.es.education.push(esp)
+        parsedJson.en.education.push(eng)
+
+        
+
+        const updatedJson = JSON.stringify(parsedJson)
+
+        try {
+            fs.writeFileSync("./frontend/static/data/description.json", updatedJson)
+            return res.redirect('/education')
+        } catch (error) {
+            return res.redirect('/education')
+        }
+    }
+    return res.redirect('/')
+    
+   
+})
+
+app.post('/updateeducation/:index', async (req, res) => {
+    const body = req.body
+    const param = req.params.index
+
+
+    let db =  readData('./frontend/static/data/description.json')
+    db = JSON.parse(db)
+
+    
+    
+    const cz = db.cz.education[param]
+    const es = db.es.education[param]
+    const en = db.en.education[param]
+    
+    
+    cz.title = body.title_cz
+    cz.desc = body.desc_cz
+
+    es.title = body.title_es
+    es.desc = body.desc_es
+
+    en.title = body.title_en
+    en.desc = body.desc_en
+  
+
+    db.cz.education[param]= cz
+    db.es.education[param]= es
+    db.en.education[param]= en
+    db = JSON.stringify(db)
+    
+    try{
+        fs.writeFileSync("./frontend/static/data/description.json", db)
+        // const result = readData('./frontend/static/data/description.json')
+        // return res.send(result)
+        return res.redirect('/education')
+
+    }catch(e){
+        return res.send(e)
+    }
 })
 
 

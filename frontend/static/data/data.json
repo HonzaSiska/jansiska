@@ -1,83 +1,38 @@
 {
     "cz": [
-        {
-            "year": "1995 -2000",
-            "title": "HOTEL SLEZAN",
-            "desc": "Záběry mrtvých civilistů a zprávy o válečných zločinech z ukrajinského města Buča jsou falešné, prohlásil v úterý ruský prezident Vladimir Putin po jednání s běloruským vůdcem Alexandrem Lukašenkem. Podle Lukašenka je situace v Buči výsledkem britské zpravodajské operace. Údajné důkazy předal ruské tajné službě, sdělil Putin.\nZdroj: https://www.idnes.cz/zpravy/zahranicni/rusko-valka-ukrajina-invaze-prezident-vladimir-putin-buca-alexandr-lukasenko.A220412_152109_zahranicni_dtt"
-        },
-        {
-            "year": "2000-2014",
-            "title": "SISKA BUILDING SYSTEM",
-            "desc": "Gubernátor Kyjevské oblasti, v níž leží i Buča, v úterý řekl, že návrat do dříve okupovaných míst bude více či méně reálně možný na konci května. Ukrajinské úřady již dříve varovaly před nastraženými minami, v osvobozené oblasti ale také plně nefungují dodávky elektřiny či plynu.\nZdroj: https://www.idnes.cz/zpravy/zahranicni/rusko-valka-ukrajina-invaze-prezident-vladimir-putin-buca-alexandr-lukasenko.A220412_152109_zahranicni_dtthttps://www.idnes.cz/zpravy/zahranicni/rusko-valka-ukrajina-invaze-prezident-vladimir-putin-buca-alexandr-lukasenko.A220412_152109_zahranicni_dtt"
-        },
-        {
-            "year": "2014-2019",
-            "title": "MADERAS SOSTENIBLES, CIUDAD DE CITRICOS",
-            "desc": "Rusko v současné době podle ukrajinské armády připravuje rozsáhlou ofenzívu na východě Ukrajiny. Po jednání v Istanbulu 29. března Moskva oznámila, že stáhne ruské jednotky z Černihivské a Kyjevské oblasti na severu Ukrajiny, což zdůvodnila snahou zlepšit vzájemnou důvěru a vytvořit podmínky pro dohodu s Ukrajinou. Kyjev v Turecku naopak představil návrh cesty k možné neutralitě Ukrajiny.\n\nZdroj: https://www.idnes.cz/zpravy/zahranicni/rusko-valka-ukrajina-invaze-prezident-vladimir-putin-buca-alexandr-lukasenko.A220412_152109_zahranicni_dtt"
-        },
-        {
-            "year": "2019",
-            "title": "SLADOVNA BRUNTAL",
-            "desc": "Dávají mu zásluhy za to, že se Ukrajina zatím ubránila ruskému vpádu. Oslavují ho jako hrdinu a vyzdvihují jeho přístup k vojákům. Generálporučík Valerij Zalužnyj, nejvyšší velitel ukrajinských ozbrojených sil, sice zůstává ve stínu prezidenta Volodymyra Zelenského, jeho role ve válce s Ruskem je však zásadní. I díky tomu, jak modernizoval ukrajinskou armádu.\nZdroj: https://www.idnes.cz/zpravy/zahranicni/ukrajina-rusko-general-valka-zaluznyj-armada.A220411_182700_zahranicni_jhr?zdroj=megovka"
-        },
-        {
-            "year": "TEST",
-            "title": "Test",
-            "desc": "Test"
+        {   
+            "year": "1998",
+            "title": "Cesky title",
+            "desc": "Cesky desc"
+        }, 
+        {   
+            "year": "2000",
+            "title": "Cesky title",
+            "desc": "Cesky desc"
         }
-    ],
+    ], 
     "es": [
-        {
-            "year": "1995 -2000",
-            "title": "HOTEL SLEZAN",
-            "desc": "La agencia Reuters informó de la existencia de artefactos sin detonar en la estación, citando fuentes del Departamento de Bomberos de la ciudad. El Departamento de Policía de Nueva York, no obstante, confirmó que no se han hallado explosivos activos en los andenes."
+        {   
+            "year": "1998",
+            "title": "Spanish title",
+            "desc": "Spanish desc" 
         },
         {
-            "year": "2000-2014",
-            "title": "SISKA BUILDING SYSTEM",
-            "desc": "York (MTA, en sus siglas inglesas), que gestiona el funcionamiento del metro, no ha proporcionado más detalles del suceso. También el portavoz del alcalde, Eric Adams -que el domingo dio positivo en covid-19 y trabaja aislado en su domicilio-, declinó hacer comentarios al respecto."
-        },
-        {
-            "year": "2014-2019",
-            "title": "MADERAS SOSTENIBLES, CIUDAD DE CITRICOS",
-            "desc": "de fabricación casera, que están causando estragos en las calles de Nueva York. El viernes pasado, una joven de 16 años murió por una bala perdida, salida precisamente de una de esas pistolas fantasmas, cuando volvía a casa del instituto. El presunto autor, de 17 años, fue detenido."
-        },
-        {
-            "year": "2019",
-            "title": "SLADOVNA BRUNTAL",
-            "desc": "La entidad pública detalló este martes que en total son 12.379 los casos de embarazos en mujeres menores de 19 años en enero y febrero pasados, incluidas las 349 niñas que dieron a luz en el primer bimestre del año por violación sexual."
-        },
-        {
-            "year": "TEST",
-            "title": "Test",
-            "desc": "Test"
+            "year": "2000",
+            "title": "Spanish title",
+            "desc": "Spanish desc" 
         }
     ],
     "en": [
         {
-            "year": "1995 -2000",
-            "title": "HOTEL SLEZAN",
-            "desc": "As more gatherings were revealed, the prime minister apologised for attending a drinks party in the Downing Street garden, but told Parliament he believed he had been attending a work event."
+            "year": "1998",
+            "title": "EN title",   
+            "desc": "En desc" 
         },
-        {
-            "year": "2000-2014",
-            "title": "SISKA BUILDING SYSTEM",
-            "desc": "If their instinct is to find a way through, they'll be helped by the fact that Parliament isn't sitting and Conservative MPs are less likely to get together and decide it's time for change at the top.If their instinct is to find a way through, they'll be helped by the fact that Parliament isn't sitting and Conservative MPs are less likely to get together and decide it's time for change at the top."
-        },
-        {
-            "year": "2014-2019",
-            "title": "MADERAS SOSTENIBLES, CIUDAD DE CITRICOS",
-            "desc": "Sources have told the BBC that some fines had been given to people who attended a leaving party in Downing Street on 16 April 2021 - the eve of Prince Philip's funeral.Sources have told the BBC that some fines had been given to people who attended a leaving party in Downing Street on 16 April 2021 - the eve of Prince Philip's funeral."
-        },
-        {
-            "year": "2019",
-            "title": "SLADOVNA BRUNTAL",
-            "desc": "Ukrainian President Volodymyr Zelensky said he cannot say with certainty if chemical weapons were used in Mariupol following unverified reports of a possible such strike in the city. The US and UK say they are working to verify the details."
-        },
-        {
-            "year": "TEST",
-            "title": "Test",
-            "desc": "Test"
+        {   
+            "year": "2000",
+            "title": "EN title",   
+            "desc": "En desc" 
         }
     ]
 }

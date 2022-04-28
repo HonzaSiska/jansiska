@@ -17,6 +17,7 @@ const getContent = async () => {
 const renderContent = (data) => {
     const target = document.querySelector('#admin-content')
     let html =''
+    console.log('data admin', data)
 
     length
     data.cz.forEach((item, index) => {

@@ -14,7 +14,7 @@ const renderContent = (data) => {
         html += `
     
         <h1>${index + 1}</h1>
-        <form style="padding: 10px;" id="update-edu-form-${index}"  method="POST" action="/updateeducation/${index}" submit="return false;">
+        <form style="padding: 10px;" id="update-edu-form-${index}"  method="POST" action="/updateeducation/${index}" >
 
             <label>Title-CZ</label> 
             <input type="text" name="title_cz" id="title_cz${index}" value="${item.title}" required>
