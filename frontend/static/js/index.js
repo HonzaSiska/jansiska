@@ -343,9 +343,9 @@ renderer.setPixelRatio(window.devicePixelRatio)//for higher res
 //CREATE A SPHERE
 let earthSize  
 if(window.matchMedia("(min-width: 920px)").matches) {
-    earthSize = 5
+    earthSize = 4.5
 }else{
-    earthSize = 3.5
+    earthSize = 3
 }
 
 

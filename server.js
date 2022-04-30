@@ -311,45 +311,78 @@ app.post('/addeducation', async (req, res) => {
 })
 
 app.post('/updateeducation/:index', async (req, res) => {
-    const body = req.body
-    const param = req.params.index
+    if(req.session.username){
+        const body = req.body
+        const param = req.params.index
+        
+        let db =  readData('./frontend/static/data/description.json')
+        db = JSON.parse(db)
 
+        
+        const cz = db.cz.education[param]
+        const es = db.es.education[param]
+        const en = db.en.education[param]
+        
+        
+        cz.title = body.title_cz
+        cz.desc = body.desc_cz
 
-    let db =  readData('./frontend/static/data/description.json')
-    db = JSON.parse(db)
+        es.title = body.title_es
+        es.desc = body.desc_es
 
+        en.title = body.title_en
+        en.desc = body.desc_en
     
-    
-    const cz = db.cz.education[param]
-    const es = db.es.education[param]
-    const en = db.en.education[param]
-    
-    
-    cz.title = body.title_cz
-    cz.desc = body.desc_cz
 
-    es.title = body.title_es
-    es.desc = body.desc_es
+        db.cz.education[param]= cz
+        db.es.education[param]= es
+        db.en.education[param]= en
+        db = JSON.stringify(db)
 
-    en.title = body.title_en
-    en.desc = body.desc_en
-  
+        try{
+            fs.writeFileSync("./frontend/static/data/description.json", db)
+            return res.redirect('/education')
+        }catch(e){
+            return res.send(e)
+        }
 
-    db.cz.education[param]= cz
-    db.es.education[param]= es
-    db.en.education[param]= en
-    db = JSON.stringify(db)
-    
-    try{
-        fs.writeFileSync("./frontend/static/data/description.json", db)
-        // const result = readData('./frontend/static/data/description.json')
-        // return res.send(result)
-        return res.redirect('/education')
-
-    }catch(e){
-        return res.send(e)
     }
+    return res.redirect('/')
+
+    
+    
 })
+
+app.post('/deleteeducation/:index', async (req, res) => {
+
+    if(req.session.username){
+        const index = req.params.index
+
+        let db =  readData('./frontend/static/data/description.json')
+
+        db= JSON.parse(db)
+
+        db.cz.education.splice(index, 1)
+        db.en.education.splice(index, 1)
+        db.es.education.splice(index, 1)
+
+        db = JSON.stringify(db)
+
+        try{
+            fs.writeFileSync("./frontend/static/data/description.json", db)
+            return res.redirect('/education')
+        }catch(e){
+            return res.send(e)
+        }
+    }
+    return res.redirect('/')
+    
+
+
+
+})
+
+
 
 
 app.get('/description', async(req, res) => {
@@ -491,6 +524,114 @@ app.get('/printdata', async (req, res) => {
     }catch(e){
         return res.json(e)
     }
+})
+
+app.get('/skills', async (req, res) => {
+    if(req.session.username){
+        
+        return res.sendFile(path.resolve(__dirname,'frontend','skills.html'))
+        
+    }
+    return res.redirect('/')
+   
+
+})
+
+app.get('/skillsdata', async (req, res) => {
+    if(req.session.username){
+        try {
+            const db = readData('./frontend/static/data/description.json')
+
+            return res.send(db)
+        } catch (error) {
+            return res.send(error)
+        }    
+    }
+    return res.redirect('/')
+})
+
+app.post('/updateskill/:index', async (req, res) => {
+
+    if(req.session.username){
+        const body = req.body
+        const param = req.params.index
+
+        try {
+            let db = readData('./frontend/static/data/description.json')
+
+            db = JSON.parse(db)
+
+            db.cz.skills[param] = body.skill_cz
+            db.es.skills[param] = body.skill_es
+            db.en.skills[param] = body.skill_en
+
+            db = JSON.stringify(db)
+
+            fs.writeFileSync("./frontend/static/data/description.json", db)
+
+            return res.redirect('/skills')
+
+        } catch (error) {
+            return res.send(error)
+        }
+
+    }
+    
+    return res.redirect('/')
+    
+})
+
+app.post('/addskill', async (req, res) => {
+    
+    if(req.session.username){
+        const body = req.body
+
+        try {
+            let db = readData('./frontend/static/data/description.json')
+            db = JSON.parse(db)
+
+            db.cz.skillsTitle = body.skill_title_cz
+            db.cz.skillsTitle = body.skill_title_cz
+
+            db.cz.skills.push(body.skill_cz)
+            db.es.skills.push(body.skill_es)
+            db.en.skills.push(body.skill_en)
+            db = JSON.stringify(db)
+
+            fs.writeFileSync("./frontend/static/data/description.json", db)
+
+            return res.redirect('/skills')
+        
+        } catch (error) {
+            return res.redirect('/')
+        }
+    }
+    return res.redirect('/')
+    
+
+})
+
+app.post('/deleteskill/:index', async(req, res) => {
+    const param= req.params.index
+    if(req.session.username){
+        try {
+            let db = readData('./frontend/static/data/description.json')
+            db = JSON.parse(db)
+
+            db.cz.skills.splice(param, 1)
+            db.es.skills.splice(param, 1)
+            db.en.skills.splice(param, 1)
+            db = JSON.stringify(db)
+
+            fs.writeFileSync("./frontend/static/data/description.json", db)
+             return res.redirect('/skills')
+
+        } catch (error) {
+            return res.send(error)
+        }
+    }
+    return res.redirect('/')
+
 })
 
 

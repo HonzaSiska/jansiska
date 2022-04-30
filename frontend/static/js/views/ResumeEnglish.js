@@ -11,29 +11,36 @@ export default class extends AbstractView {
         const  data = await fetch('/data')
      
         const parsedData = await data.json()
-
-        let html =`
+        
+        let html = `
+        <nav class="nav">
+            <a href="/en" class="nav__link" data-link>Home</a>
+            <a href="/resume/en" class="nav__link" data-link>CV</a> 
+        </nav>
+        <h1 class="title-stroke">Zivotopis !!</h1>
         <div id="curriculum-intro" >
             <p>${parsedData.desc.en.intro}</p>
         </div>
+        <section id="tl-wrapper">
         `
 
-        const cz = parsedData.data.en
+        const en = parsedData.data.en
+        const edu = parsedData.desc.en
 
-        cz.forEach((item, index) => {
+        en.forEach((item, index) => {
             
             const { year, title, desc } = item
    
             html += `
 
-            <div class="tl-date-section">
-                <div class="tl-date-container">
+            <div class="tl-date-section ">
+                <div class="tl-date-container" >
                     <div>
                         <div class="date-circle">
                             ${year}
                         </div>
-                        <div>
-                            <svg data-id="${index}" class="carret-bottom" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 8 8">
+                        <div class="carret">
+                            <svg  data-id="${index}" class="carret-bottom" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 8 8">
                             <path class="carret-path" d="M0 0l4 4 4-4h-8z" transform="translate(0 2)" />
                             </svg>
                         </div>
@@ -47,10 +54,10 @@ export default class extends AbstractView {
                         <path d="M4 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm-1.5 1.78l1.5 1.5 1.5-1.5.72.72-1.5 1.5 1.5 1.5-.72.72-1.5-1.5-1.5 1.5-.72-.72 1.5-1.5-1.5-1.5.72-.72z" />
                         </svg>
                 </div>
-                <div class="triangle"></div>
+                <div  class="triangle"></div>
                 </div>
                 <div class="tl-desc-section-right">
-                    <div class="triangle-wrapper">
+                    <div >
                         <div class="">
                         </div>
                     </div>
@@ -62,33 +69,63 @@ export default class extends AbstractView {
                     </div>
                 </div>
             </div>
+           
             `
+            
         })
 
+        //EDUCATION
+
+        const educations = parsedData.desc.en.education
+        const skills = parsedData.desc.en.skills
+        const skillsTitle = parsedData.desc.en.skillsTitle
+
+        
+
+        html += `
+            <div class="tl-date-section">
+                <div class="tl-date-container">
+                    <div class="date-circle">
+                        DNES
+                    </div>
+                
+                </div>
+            </div> 
+            <div class="edu-section">
+                <div class="edu-title"><h2>${edu.eduTitle}</h2></div>
+            </div>
+        `
+        educations.forEach(edu => {
+            html+= `<div class="edu-item">
+                <h3>${edu.title}</h3>
+                <p>${edu.desc}</p>
+            </div>`
+        })
+
+        html+=`
+        
+            <div class="edu-section">
+                <div class="edu-title"><h2>${skillsTitle}</h2></div>
+            </div>
+
+        `
+        skills.forEach(skill => {
+            html+= `<ul class="edu-item">
+                
+                <p>${skill}</p>
+            </ul>`
+        })
+
+        html+=`</section>`
+        
+        
         return html
 
     }
     async getHtml(){
-        let data = await this.getData()
 
-        return `
-            <nav class="nav">
-                <a href="/en" class="nav__link" data-link>Home</a>
-                <a href="/resume/en" class="nav__link" data-link>Resume</a> 
-            </nav>
-            <h1 class="title-stroke">Resume</h1> 
-            <section id="tl-wrapper">
-                ${data}
-                <div class="tl-date-section">
-                    <div class="tl-date-container">
-                        <div class="date-circle">
-                            DNES
-                        </div>
-                       
-                    </div>
-                </div> 
-            </section> 
-            
-        `
+        let data = await this.getData()
+        
+        return data
     }
 }

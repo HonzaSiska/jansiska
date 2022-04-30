@@ -2,17 +2,14 @@
     "cz": {
         "tlTitle": "ZKUSENOST",
         "eduTitle": "VZDELANI",
-        "skillsTitle": "DOVEDNOSTI",
         "intro": "Trojjazyčný a cílevědomý člověk s obrovskou pracovní morálkou a silnými komunikačními schopnostmi. Rozvinuté silné stránky během rozmanité kariéry v různých zemích a oblastech kariéry, cenné dovednosti v oblasti prodeje a řízení malých podniků jako vlastník/provozovatel vinařství s tropickým ovocem. Zběhlý v používání počítačů.",
+        "skillsTitle": "DOVEDNOSTI",
         "skills": [
             "umi varit",
-            "umi chlastat"
+            "umi chlastat1",
+            "Skvely fotbalista"
         ],
         "education": [
-            {
-                "title": "KUCHAR",
-                "desc": "silherovice"
-            },
             {
                 "title": "PRIMAKURZY",
                 "desc": "skola programovani"
@@ -22,8 +19,8 @@
                 "desc": "12332"
             },
             {
-                "title": "edu1",
-                "desc": "edu1"
+                "title": "Hotelová skola",
+                "desc": "kuchar1"
             }
         ]
     },
@@ -34,13 +31,10 @@
         "skillsTitle": "HABILIDADES",
         "skills": [
             "puede cocinar",
-            "puede chupar"
+            "puede chupar1",
+            "futbolista excelente"
         ],
         "education": [
-            {
-                "title": "ESCHUELA COCINERO",
-                "desc": "silherovice"
-            },
             {
                 "title": "PRIMAKURZY",
                 "desc": "desarrollo web"
@@ -50,8 +44,8 @@
                 "desc": "213123"
             },
             {
-                "title": "edu1",
-                "desc": "edu1"
+                "title": "Escuela para cosineros",
+                "desc": "cosinero1"
             }
         ]
     },
@@ -62,13 +56,10 @@
         "skillsTitle": "SKILLS",
         "skills": [
             "can cook",
-            "can booze"
+            "can booze1",
+            "excellente soccer player"
         ],
         "education": [
-            {
-                "title": "COULINARY SCHOOL",
-                "desc": "silherovice"
-            },
             {
                 "title": "PRIMAKURZY",
                 "desc": "web development"
@@ -78,8 +69,8 @@
                 "desc": "123123"
             },
             {
-                "title": "edu1",
-                "desc": "edu1"
+                "title": "Culinary School",
+                "desc": "Cook1"
             }
         ]
     }

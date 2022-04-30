@@ -11,7 +11,7 @@ export default class extends AbstractView {
         const  data = await fetch('/data')
      
         const parsedData = await data.json()
-        console.log('parsed',parsedData)
+        
         let html = `
         <nav class="nav">
             <a href="/" class="nav__link" data-link>Domů</a>

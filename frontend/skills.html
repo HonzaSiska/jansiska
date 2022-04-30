@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cz">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/index.css">
+        <title>Single Page</title>
+    </head>
+    <body >
+    <div id="admin-container">
+
+        <nav id="admin-nav">
+            <a href="/admin">Admin</a>
+            <a href="/intro">Intro</a>
+            <a href="/skills">Skills</a>
+            <a href="/description">Description</a>
+            <a href="/education">Education</a>
+        </nav>
+        <h2>Skills</h2>
+        <p class="error"></p>
+        <form style="background-color: lightgrey;padding: 10px;" id="skill-form" name="skill-form" method="POST" action="/addskill" >
+
+            <label>Skill-CZ</label> 
+            <br>
+            <textarea rows="10" cols="40" type="text" name="skill_cz" id="skill_cz" required></textarea>
+            <hr>
+
+            <label>Skill-ES</label> 
+            <br>
+            <textarea rows="10" cols="40" type="text" name="skill_es" id="skill_es" required></textarea>
+            <hr>
+
+            <label>Skill-EN</label> 
+            <br>
+            <textarea rows="10" cols="40" type="text" name="skill_en" id="skill_en" required></textarea>
+
+
+            <input form="skill-form" type="submit" value="Add Skill" id="skill-form-btn">
+        </form>
+        <div id="skills-content">
+
+        </div>
+    </div>
+    <script type="module" src="/static/js/skills.js"></script>
+    </body>
+</html>
