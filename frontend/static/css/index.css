@@ -652,6 +652,107 @@ a {
 
 
 
+/* CONTACT */
+
+#contact-wrapper{
+    width: 60px;
+    /* background: rgb(249, 249, 249, 0.1); */
+    margin: 50px auto;
+    border-radius: 35px;
+    
+    
+}
+
+/* FLIPP CARD */
+
+
+#main-container{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    
+    
+}
+#card{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+    
+    
+    
+}
+/* #card:hover{
+    transform: rotateY(180deg);
+} */
+#contact-close{
+    width: 100%;
+}
+
+#thefront{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: var(--light-blue);
+    color:  #333;
+    padding: 5px;
+    border-radius: 30px;
+    border: 3px solid var(--light-back)
+}
+#theback{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgb(98, 119, 148);
+    color:  #333;
+    transform: rotateY(180deg);
+    padding:5px;
+    border-radius: 30px;
+    border: 3px solid var(--light-back);
+}
+
+.open-contact{
+    
+    animation: openContact 1s forwards;
+}
+.close-contact{
+    
+    animation: closeContact 1s forwards;
+}
+
+
+/* rgb(249, 249, 249, 0.1) */
+
+@keyframes openContact {
+    to {
+        width: 80%;
+        background: rgb(8, 83, 108);
+        padding: 10px;
+        box-shadow: 5px 6px 15px -3px rgb(213, 247, 228, 0.4);
+        
+        
+    }
+}
+@keyframes closeContact {
+    from{
+        width: 80%;
+        background: rgb(8, 83, 108);
+        padding: 10px;
+        box-shadow: 5px 6px 15px -3px rgb(213, 247, 228, 0.4);
+      
+    }
+    to {
+        background: none;
+        padding: 0px;
+        box-shadow: none;
+        width: 60px;
+        
+        
+    }
+}
 
 
 @keyframes line-anime {

@@ -542,6 +542,24 @@ if(touch !== true){
     
     }
 }
+const contactWrapper = document.querySelector('#contact-wrapper')
+const card = document.querySelector('#card')
+const contactIcon = document.querySelector('#thefront img')
+const closeIcon = document.querySelector('#theback img')
+contactIcon.addEventListener('click', () => {
+    card.style.transform='rotateY(180deg)'
+    contactWrapper.classList.add('open-contact')
+    contactWrapper.classList.remove('close-contact')
+
+})
+closeIcon.addEventListener('click', () => {
+    card.style.transform='rotateY(360deg)'
+    contactWrapper.classList.remove('open-contact')
+    contactWrapper.classList.add('close-contact')
+})
+
+
+
 
 
 
