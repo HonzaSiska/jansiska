@@ -634,6 +634,17 @@ app.post('/deleteskill/:index', async(req, res) => {
 
 })
 
+//CONTACT
+
+app.get('/contact', async( req, res ) => {
+    try {
+        let db = readData("./frontend/static/data/data.json")
+        return res.send(db)
+    } catch (error) {
+        return res.send(error)
+    }
+})
+
 
 app.get('/*', (req,res) => {
     // req.session.destroy()

@@ -542,21 +542,81 @@ if(touch !== true){
     
     }
 }
+//CONTACT
+
+
+//GET CONTACT DATA
+
+const getContactData = async() => {
+    try {
+        const json = await fetch("/contact")
+        const data = await json.json()
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
+const renderContact = (data) => {
+    // console.log('data', getContactData())
+    const contactContent = document.querySelector('#contact-content')
+    let html = `
+        <h2>${data.contact.name}</h2>
+        <p>${data.contact.address}</p>
+        <p>${data.contact.address2}</p>
+        <p>${data.contact.email}</p>
+        <p>${data.contact.email2}</p>
+        <p>${data.contact.tel}</p>
+        <p>${data.contact.tel2}</p>
+    `
+    contactContent.innerHTML = html
+
+}
+
+
 const contactWrapper = document.querySelector('#contact-wrapper')
 const card = document.querySelector('#card')
 const contactIcon = document.querySelector('#thefront img')
 const closeIcon = document.querySelector('#theback img')
-contactIcon.addEventListener('click', () => {
+contactIcon.addEventListener('click', async() => {
+
+    const db = await getContactData()
+    
+    const contactContent = document.querySelector('#contact-content')
+
     card.style.transform='rotateY(180deg)'
     contactWrapper.classList.add('open-contact')
     contactWrapper.classList.remove('close-contact')
+    
+    setTimeout(() => {
+        contactContent.style.display="block"
+        
+        renderContact(db)
+
+        window.scrollTo(0,document.body.scrollHeight);
+    }, 500);
 
 })
 closeIcon.addEventListener('click', () => {
+
+    const contactContent = document.querySelector('#contact-content')
+    
+
+    setTimeout(() => {
+        contactContent.style.display="none"
+    }, 200);
+    
     card.style.transform='rotateY(360deg)'
     contactWrapper.classList.remove('open-contact')
     contactWrapper.classList.add('close-contact')
 })
+
+
+
+
+// addEventListener('DOMContentLoaded', () => {
+//     getContactData()
+// })
 
 
 
