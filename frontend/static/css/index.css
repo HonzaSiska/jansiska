@@ -338,10 +338,7 @@ a {
     color: var(--light-back);
       
 }
-.morph .description{
-    color: var(--main-dark);
-      
-}
+
 #login-form-wrapper{
     width: 0px;
     height: 0vh;
