@@ -86,7 +86,7 @@ export default class extends AbstractView {
             <div class="tl-date-section">
                 <div class="tl-date-container">
                     <div class="date-circle">
-                        DNES
+                       
                     </div>
                 
                 </div>

@@ -590,8 +590,9 @@ app.post('/addskill', async (req, res) => {
             let db = readData('./frontend/static/data/description.json')
             db = JSON.parse(db)
 
-            db.cz.skillsTitle = body.skill_title_cz
-            db.cz.skillsTitle = body.skill_title_cz
+            // db.cz.skillsTitle = body.skill_title_cz
+            // db.en.skillsTitle = body.skill_title_en
+            // db.es.skillsTitle = body.skill_title_es
 
             db.cz.skills.push(body.skill_cz)
             db.es.skills.push(body.skill_es)
