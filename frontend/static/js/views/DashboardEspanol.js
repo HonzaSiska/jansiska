@@ -18,12 +18,12 @@ export default class extends AbstractView {
         return `
         
             <nav class="nav">
-                <a href="/es" class="nav__link" data-link>Inicio</a>
-                <a href="/resume/es" class="nav__link" data-link>Currículum</a>
+                <a href="/es" class="nav__link" data-link>Início</a>
+                <a href="/resume/es" class="nav__link" data-link>Curriculum Vitae</a>
             </nav>
         
            
-            <h1  class="title-stroke">Inicio</h1>
+            <h1  class="title-stroke">Bienvenido</h1>
             <div class="description">
                 <p>${data.es}</p>     
             </div>

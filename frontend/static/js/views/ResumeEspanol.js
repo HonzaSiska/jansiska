@@ -14,10 +14,10 @@ export default class extends AbstractView {
         
         let html = `
         <nav class="nav">
-            <a href="/es" class="nav__link" data-link>Domů</a>
-            <a href="/resume/es" class="nav__link" data-link>Zivotopis</a> 
+            <a href="/es" class="nav__link" data-link>Início</a>
+            <a href="/resume/es" class="nav__link" data-link>Curriculum Vitae</a> 
         </nav>
-        <h1 class="title-stroke">Zivotopis !!</h1>
+        <h1 class="title-stroke">Curriculum Vitae</h1>
         <div id="curriculum-intro" >
             <p>${parsedData.desc.es.intro}</p>
         </div>
