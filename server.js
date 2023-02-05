@@ -63,7 +63,7 @@ app.use(session({
     name: process.env.SESSION_NAME,
     saveUninitialized: false,
     cookie: { 
-        maxAge: 86400000 ,
+        maxAge: 8640000000 ,
     }
 }))
 
